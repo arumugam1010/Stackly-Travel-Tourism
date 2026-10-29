@@ -1,0 +1,1055 @@
+/* ==============================================================
+   RESTIN TOURS & TRAVELS - AUTH & NAVBAR CUSTOM STYLES
+   ============================================================== */
+
+:root {
+    --auth-gold: #AA8453;
+    --auth-gold-hover: #8e6d42;
+    --auth-gold-light: rgba(170, 132, 83, 0.15);
+    --auth-dark: #121417;
+    --auth-card-bg: rgba(24, 26, 30, 0.94);
+    --auth-border: rgba(170, 132, 83, 0.35);
+    --auth-text: #f0ede8;
+    --auth-muted: #a3a6ad;
+}
+
+/* -------------------------------------------------------------
+   1. NAVBAR PERFECT SINGLE-ROW ALIGNMENT & LUXURY CAPSULE
+   ------------------------------------------------------------- */
+/* Completely remove top-bar everywhere across all pages */
+.header-top-section-3,
+.header-top-section,
+.header-top-wrapper-3,
+.header-top-wrapper {
+    display: none !important;
+    height: 0 !important;
+    min-height: 0 !important;
+    max-height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+.header-1,
+.header-1.header-3 {
+    top: 0 !important;
+}
+
+.header-main {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    min-height: 96px !important;
+}
+
+.header-left, .header-right {
+    display: flex !important;
+    align-items: center !important;
+}
+
+/* Luxury Glassmorphism Capsule for Main Menu - Bigger Height & Prominent (Desktop Only) */
+@media (min-width: 1200px) {
+    .mean__menu-wrapper {
+        display: flex !important;
+        align-items: center !important;
+    }
+
+    .header-1 .header-main .main-menu {
+        position: relative !important;
+        background: rgba(14, 16, 20, 0.82) !important;
+        backdrop-filter: blur(16px) !important;
+        -webkit-backdrop-filter: blur(16px) !important;
+        border: 1.5px solid rgba(170, 132, 83, 0.42) !important;
+        border-radius: 60px !important;
+        padding: 13px 36px !important;
+        min-height: 66px !important;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35) !important;
+        display: flex !important;
+        align-items: center !important;
+    }
+}
+
+/* Mobile & Tablet view: Hide desktop menu capsule completely to eliminate black dot / empty pill */
+@media (max-width: 1199px) {
+    .mean__menu-wrapper,
+    .header-1 .header-main .main-menu,
+    .header-main .main-menu {
+        display: none !important;
+        visibility: hidden !important;
+        width: 0 !important;
+        height: 0 !important;
+        min-height: 0 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        border: none !important;
+        background: transparent !important;
+        box-shadow: none !important;
+        outline: none !important;
+    }
+
+    .header-main {
+        min-height: 75px !important;
+    }
+
+    .header-1 .container-fluid {
+        padding: 0 20px !important;
+    }
+
+    .header-main .header-right .sidebar__toggle {
+        cursor: pointer !important;
+        font-size: 22px !important;
+        color: #ffffff !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 44px !important;
+        height: 44px !important;
+    }
+}
+
+.sticky .sidebar__toggle,
+#header-sticky.sticky .sidebar__toggle {
+    color: #1C1C1C !important;
+}
+
+/* Hide rigid image background that causes stretching and wrapping */
+.header-1 .header-main .main-menu .bg-image {
+    display: none !important;
+}
+
+/* Strictly enforce single horizontal row with NO wrapping */
+.header-main .main-menu ul {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important;
+    white-space: nowrap !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    list-style: none !important;
+}
+
+.header-main .main-menu ul li {
+    position: relative !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    margin-inline-end: 22px !important;
+    white-space: nowrap !important;
+    vertical-align: middle !important;
+}
+
+.header-main .main-menu ul li:last-child {
+    margin-inline-end: 0 !important;
+}
+
+.header-main .main-menu ul li a {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 7px !important;
+    font-size: 16.5px !important;
+    font-weight: 600 !important;
+    color: #fff !important;
+    padding: 10px 4px !important;
+    line-height: 1 !important;
+    white-space: nowrap !important;
+    transition: all 0.25s ease !important;
+}
+
+.header-main .main-menu ul li a:hover,
+.header-main .main-menu ul li.active a {
+    color: var(--theme, #AA8453) !important;
+}
+
+/* Auth Nav Links Inside the Navbar */
+.header-main .main-menu ul li.auth-guest-link a.nav-auth-login {
+    color: #f1dfc5 !important;
+    padding: 10px 22px !important;
+    border: 1.5px solid rgba(170, 132, 83, 0.55) !important;
+    border-radius: 30px !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.6px !important;
+}
+
+.header-main .main-menu ul li.auth-guest-link a.nav-auth-login:hover {
+    background: rgba(170, 132, 83, 0.25) !important;
+    border-color: #AA8453 !important;
+    color: #fff !important;
+}
+
+.header-main .main-menu ul li.auth-guest-link a.nav-auth-register {
+    background: var(--theme, #AA8453) !important;
+    color: #fff !important;
+    padding: 11px 25px !important;
+    border-radius: 30px !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.6px !important;
+    box-shadow: 0 2px 12px rgba(170, 132, 83, 0.35) !important;
+}
+
+.header-main .main-menu ul li.auth-guest-link a.nav-auth-register:hover {
+    background: #8e6d42 !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 16px rgba(170, 132, 83, 0.55) !important;
+}
+
+/* Logged-In User Dashboard Nav Item */
+.header-main .main-menu ul li.auth-user-link.dashboard-nav-item a {
+    background: linear-gradient(135deg, rgba(170, 132, 83, 0.38) 0%, rgba(170, 132, 83, 0.16) 100%) !important;
+    border: 1.5px solid #AA8453 !important;
+    border-radius: 30px !important;
+    padding: 11px 25px !important;
+    color: #fff !important;
+    font-weight: 700 !important;
+    font-size: 14px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.8px !important;
+    box-shadow: 0 0 16px rgba(170, 132, 83, 0.3) !important;
+}
+
+.header-main .main-menu ul li.auth-user-link.dashboard-nav-item a:hover {
+    background: var(--theme, #AA8453) !important;
+    box-shadow: 0 4px 20px rgba(170, 132, 83, 0.55) !important;
+    transform: translateY(-1px) !important;
+}
+
+/* Prevent underline / bar pseudo-elements completely on Login, Register and Dashboard */
+.header-main .main-menu ul li.auth-guest-link a,
+.header-main .main-menu ul li.auth-user-link a {
+    text-decoration: none !important;
+}
+
+.header-main .main-menu ul li.auth-guest-link > a::after,
+.header-main .main-menu ul li.auth-guest-link > a::before,
+.header-main .main-menu ul li.auth-guest-link:hover > a::after,
+.header-main .main-menu ul li.auth-guest-link:hover > a::before,
+.header-main .main-menu ul li.auth-guest-link.active > a::after,
+.header-main .main-menu ul li.auth-guest-link.active > a::before,
+.header-main .main-menu ul li.auth-user-link > a::after,
+.header-main .main-menu ul li.auth-user-link > a::before,
+.header-main .main-menu ul li.auth-user-link:hover > a::after,
+.header-main .main-menu ul li.auth-user-link:hover > a::before,
+.header-main .main-menu ul li.auth-user-link.active > a::after,
+.header-main .main-menu ul li.auth-user-link.active > a::before,
+.nav-auth-login::after,
+.nav-auth-login::before,
+.nav-auth-register::after,
+.nav-auth-register::before,
+.dynamic-dashboard-link::after,
+.dynamic-dashboard-link::before {
+    display: none !important;
+    content: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    opacity: 0 !important;
+    background: transparent !important;
+}
+
+/* Container padding breathing room */
+.header-1 .container-fluid {
+    padding: 0 35px !important;
+}
+
+@media (min-width: 1200px) {
+    .mean__menu-wrapper {
+        margin-left: auto !important;
+    }
+}
+
+/* Header Right for Mobile Hamburger */
+.header-right {
+    display: flex !important;
+    align-items: center !important;
+    flex-shrink: 0 !important;
+}
+
+/* Responsive spacing only for narrower laptops (1200px - 1280px) */
+@media (max-width: 1280px) {
+    .header-main .main-menu ul li {
+        margin-inline-end: 15px !important;
+    }
+    .header-main .main-menu ul li a {
+        font-size: 15px !important;
+    }
+    .header-1 .header-main .main-menu {
+        padding: 5px 20px !important;
+    }
+}
+
+.logout-nav-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 13px;
+}
+
+.logout-nav-btn:hover {
+    background: #e63946;
+    border-color: #e63946;
+    color: #fff;
+    transform: rotate(90deg);
+}
+
+/* Light header support (header-sticky scrolled or style-3) */
+.header-sticky.sticky .auth-nav-btn.login-btn,
+.header-3 .auth-nav-btn.login-btn {
+    color: #1c1c1c !important;
+}
+
+.header-sticky.sticky .auth-nav-btn.login-btn:hover,
+.header-3 .auth-nav-btn.login-btn:hover {
+    color: #fff !important;
+}
+
+/* -------------------------------------------------------------
+   2. AUTH PAGES (LOGIN & REGISTER)
+   ------------------------------------------------------------- */
+.auth-page-body {
+    background-color: #0d0f12;
+    min-height: 100vh;
+    font-family: 'Barlow', sans-serif;
+    color: var(--auth-text);
+    overflow-x: hidden;
+}
+
+.auth-hero-section {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 15px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.auth-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(13, 15, 18, 0.82) 0%, rgba(10, 11, 14, 0.95) 100%);
+    backdrop-filter: blur(4px);
+    z-index: 1;
+}
+
+.auth-container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 580px;
+    margin: 0 auto;
+}
+
+.auth-card {
+    background: var(--auth-card-bg);
+    border: 1px solid var(--auth-border);
+    border-radius: 20px;
+    padding: 42px 38px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.55), 0 0 40px rgba(170, 132, 83, 0.12);
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(12px);
+}
+
+.auth-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, transparent 0%, #AA8453 50%, transparent 100%);
+}
+
+.auth-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.auth-brand-logo {
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.auth-brand-logo img {
+    height: 44px;
+    width: auto;
+}
+
+.auth-title {
+    font-family: 'Gilda Display', serif;
+    font-size: 32px;
+    color: #fff;
+    margin-bottom: 8px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.auth-subtitle {
+    color: var(--auth-muted);
+    font-size: 15px;
+    margin-bottom: 0;
+}
+
+/* -------------------------------------------------------------
+   3. ROLE SELECTOR (3 ROLES)
+   ------------------------------------------------------------- */
+.role-select-section {
+    margin-bottom: 24px;
+}
+
+.role-select-label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #d1b48c;
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+.role-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.role-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1.5px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 14px 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    position: relative;
+    user-select: none;
+}
+
+.role-card input[type="radio"] {
+    display: none;
+}
+
+.role-card .role-icon {
+    font-size: 22px;
+    color: var(--auth-muted);
+    margin-bottom: 8px;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.role-card .role-name {
+    font-size: 13px;
+    font-weight: 700;
+    color: #fff;
+    display: block;
+    margin-bottom: 4px;
+    letter-spacing: 0.3px;
+}
+
+.role-card .role-desc {
+    font-size: 11px;
+    color: var(--auth-muted);
+    line-height: 1.3;
+    display: block;
+}
+
+.role-card:hover {
+    background: rgba(170, 132, 83, 0.1);
+    border-color: rgba(170, 132, 83, 0.5);
+    transform: translateY(-2px);
+}
+
+.role-card.active,
+.role-card:has(input[type="radio"]:checked) {
+    background: linear-gradient(145deg, rgba(170, 132, 83, 0.22) 0%, rgba(170, 132, 83, 0.08) 100%);
+    border-color: #AA8453;
+    box-shadow: 0 0 16px rgba(170, 132, 83, 0.3);
+}
+
+.role-card.active .role-icon,
+.role-card:has(input[type="radio"]:checked) .role-icon {
+    color: #e5c490;
+    transform: scale(1.15);
+}
+
+.role-card.active .role-name,
+.role-card:has(input[type="radio"]:checked) .role-name {
+    color: #fff;
+}
+
+.role-card .role-check {
+    position: absolute;
+    top: 6px;
+    right: 8px;
+    font-size: 11px;
+    color: #AA8453;
+    opacity: 0;
+    transform: scale(0.5);
+    transition: all 0.2s ease;
+}
+
+.role-card.active .role-check,
+.role-card:has(input[type="radio"]:checked) .role-check {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* -------------------------------------------------------------
+   4. FORM INPUTS & PASSWORD CRITERIA
+   ------------------------------------------------------------- */
+.auth-input-group {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.auth-input-group label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    font-weight: 600;
+    color: #d1b48c;
+    margin-bottom: 8px;
+    letter-spacing: 0.4px;
+}
+
+.auth-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.auth-input-wrapper .input-icon {
+    position: absolute;
+    left: 16px;
+    color: var(--auth-muted);
+    font-size: 15px;
+    pointer-events: none;
+    transition: color 0.3s ease;
+}
+
+.auth-input {
+    width: 100%;
+    height: 52px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1.5px solid rgba(255, 255, 255, 0.12);
+    border-radius: 12px;
+    padding: 0 45px 0 46px;
+    font-size: 15px;
+    color: #fff;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+.auth-input:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.08);
+    border-color: #AA8453;
+    box-shadow: 0 0 0 3px rgba(170, 132, 83, 0.25);
+}
+
+.auth-input:focus + .input-icon,
+.auth-input-wrapper:focus-within .input-icon {
+    color: #AA8453;
+}
+
+.auth-input::placeholder {
+    color: #6c727c;
+    font-size: 14px;
+}
+
+.toggle-password-btn {
+    position: absolute;
+    right: 14px;
+    background: transparent;
+    border: none;
+    color: var(--auth-muted);
+    cursor: pointer;
+    font-size: 15px;
+    padding: 6px;
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.toggle-password-btn:hover {
+    color: #fff;
+}
+
+/* Feedback helpers */
+.input-feedback {
+    font-size: 12px;
+    margin-top: 6px;
+    display: none;
+}
+
+.input-feedback.is-invalid {
+    display: block;
+    color: #ff6b6b;
+}
+
+.input-feedback.is-valid {
+    display: block;
+    color: #51cf66;
+}
+
+/* -------------------------------------------------------------
+   5. PASSWORD CRITERIA CHECKLIST (8+ Chars, Upper, Lower, Num, Symbol)
+   ------------------------------------------------------------- */
+.password-criteria-box {
+    background: rgba(0, 0, 0, 0.28);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    padding: 12px 14px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-size: 12px;
+}
+
+.criteria-title {
+    color: #d1b48c;
+    font-weight: 600;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.criteria-title span.strength-tag {
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--auth-muted);
+}
+
+.criteria-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+}
+
+.criteria-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #8c9098;
+    transition: all 0.25s ease;
+}
+
+.criteria-item i {
+    font-size: 11px;
+    width: 14px;
+    text-align: center;
+}
+
+.criteria-item.valid {
+    color: #51cf66;
+    font-weight: 500;
+}
+
+.criteria-item.valid i {
+    color: #51cf66;
+}
+
+.criteria-item.invalid {
+    color: #8c9098;
+}
+
+/* -------------------------------------------------------------
+   6. SUBMIT BUTTON & DEMO AUTOFILL CHIP
+   ------------------------------------------------------------- */
+.auth-submit-btn {
+    width: 100%;
+    height: 52px;
+    background: linear-gradient(135deg, #AA8453 0%, #836132 100%);
+    border: 1px solid #c9a474;
+    border-radius: 12px;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0 8px 24px rgba(170, 132, 83, 0.35);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.auth-submit-btn:hover {
+    background: linear-gradient(135deg, #be945d 0%, #946f3a 100%);
+    box-shadow: 0 10px 28px rgba(170, 132, 83, 0.5);
+    transform: translateY(-2px);
+}
+
+.auth-submit-btn:active {
+    transform: translateY(0);
+}
+
+.auth-demo-helper {
+    background: rgba(170, 132, 83, 0.08);
+    border: 1px dashed rgba(170, 132, 83, 0.35);
+    border-radius: 10px;
+    padding: 10px 14px;
+    margin-bottom: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 12px;
+}
+
+.auth-demo-helper span {
+    color: #d1b48c;
+}
+
+.demo-fill-btn {
+    background: rgba(170, 132, 83, 0.25);
+    border: 1px solid rgba(170, 132, 83, 0.5);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.demo-fill-btn:hover {
+    background: #AA8453;
+}
+
+.auth-footer-nav {
+    text-align: center;
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 14px;
+    color: var(--auth-muted);
+}
+
+.auth-footer-nav a {
+    color: #e5c490;
+    font-weight: 600;
+    text-decoration: none;
+    margin-left: 6px;
+    transition: color 0.2s ease;
+}
+
+.auth-footer-nav a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.back-to-home-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--auth-muted);
+    font-size: 13px;
+    text-decoration: none;
+    margin-bottom: 20px;
+    transition: all 0.2s ease;
+}
+
+.back-to-home-link:hover {
+    color: #AA8453;
+    transform: translateX(-3px);
+}
+
+/* -------------------------------------------------------------
+   7. TOAST NOTIFICATIONS
+   ------------------------------------------------------------- */
+.auth-toast {
+    position: fixed;
+    top: 24px;
+    right: 24px;
+    z-index: 99999;
+    min-width: 300px;
+    max-width: 420px;
+    background: #1c1e22;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-left: 4px solid #AA8453;
+    border-radius: 10px;
+    padding: 16px 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    color: #fff;
+    font-size: 14px;
+    transform: translateY(-20px);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.auth-toast.show {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+}
+
+.auth-toast.toast-success {
+    border-left-color: #51cf66;
+}
+
+.auth-toast.toast-error {
+    border-left-color: #ff6b6b;
+}
+
+/* -------------------------------------------------------------
+   8. MOBILE RESPONSIVE TWEAKS
+   ------------------------------------------------------------- */
+@media (max-width: 767px) {
+    .auth-card {
+        padding: 30px 20px;
+        border-radius: 16px;
+    }
+
+    .auth-title {
+        font-size: 26px;
+    }
+
+    .role-grid {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    .role-card {
+        display: flex;
+        align-items: center;
+        text-align: left;
+        gap: 12px;
+        padding: 10px 14px;
+    }
+
+    .role-card .role-icon {
+        margin-bottom: 0;
+        font-size: 20px;
+    }
+
+    .role-card .role-info {
+        flex: 1;
+    }
+
+    .criteria-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* -------------------------------------------------------------
+   HERO EXPLORE TOUR PACKAGES BUTTON BACKGROUND FIX
+   ------------------------------------------------------------- */
+.hero-1 .hero-content .theme-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: relative !important;
+    overflow: hidden !important;
+    padding: 16px 34px !important;
+    height: 55px !important;
+    border-radius: 10px !important;
+    white-space: nowrap !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.5px !important;
+}
+
+.hero-1 .hero-content .theme-btn img {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: fill !important;
+    border-radius: 10px !important;
+    z-index: -2 !important;
+    pointer-events: none !important;
+}
+
+/* -------------------------------------------------------------
+   TOUR PACKAGES / ROOM SLIDER - PERFECT SAME-LINE ALIGNMENT
+   ------------------------------------------------------------- */
+.room-section .room-slider .swiper-wrapper {
+    align-items: stretch !important;
+}
+
+.room-section .room-slider .swiper-slide {
+    height: auto !important;
+    display: flex !important;
+}
+
+.room-box-item {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 0 0 8px 8px !important;
+    overflow: hidden !important;
+}
+
+.room-box-item .room-image {
+    height: 240px !important;
+    min-height: 240px !important;
+    max-height: 240px !important;
+    position: relative !important;
+    overflow: hidden !important;
+    flex-shrink: 0 !important;
+}
+
+.room-box-item .room-image img {
+    height: 100% !important;
+    width: 100% !important;
+    object-fit: cover !important;
+}
+
+.room-box-item .content-item {
+    display: flex !important;
+    flex-direction: column !important;
+    flex: 1 1 auto !important;
+    justify-content: space-between !important;
+    background: #ffffff !important;
+    border-bottom-left-radius: 8px !important;
+    border-bottom-right-radius: 8px !important;
+}
+
+.room-box-item .content-item .room-content {
+    display: flex !important;
+    flex-direction: column !important;
+    flex: 1 1 auto !important;
+    padding: 24px 26px 18px !important;
+}
+
+.room-box-item .content-item .room-content h6 {
+    margin-bottom: 12px !important;
+    align-self: flex-start !important;
+    font-size: 13px !important;
+    padding: 4px 10px !important;
+}
+
+.room-box-item .content-item .room-content h4 {
+    min-height: 86px !important;
+    margin-bottom: 12px !important;
+    display: flex !important;
+    align-items: flex-start !important;
+}
+
+.room-box-item .content-item .room-content h4 a {
+    font-size: 20px !important;
+    line-height: 1.35 !important;
+    display: block !important;
+}
+
+.room-box-item .content-item .room-content .list {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 9px !important;
+    align-items: flex-start !important;
+    margin-top: auto !important;
+    margin-bottom: 0 !important;
+    padding-top: 10px !important;
+}
+
+.room-box-item .content-item .room-content .list li {
+    display: flex !important;
+    align-items: center !important;
+    gap: 9px !important;
+    font-size: 14.5px !important;
+    line-height: 1.2 !important;
+}
+
+.room-box-item .content-item .theme-btn {
+    margin-top: auto !important;
+    width: 100% !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 16px 26px !important;
+    border-radius: 0 0 8px 8px !important;
+    text-transform: uppercase !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.8px !important;
+    height: 52px !important;
+}
+
+/* -------------------------------------------------------------
+   STACKLY LOGO SIZING & CRISP RENDERING ACROSS SITE
+   ------------------------------------------------------------- */
+.header-logo img,
+.header-logo-2 img {
+    height: 42px !important;
+    width: auto !important;
+    max-width: 175px !important;
+    object-fit: contain !important;
+    display: block !important;
+}
+
+.footer-logo img {
+    height: 46px !important;
+    width: auto !important;
+    max-width: 190px !important;
+    object-fit: contain !important;
+    display: inline-block !important;
+}
+
+.offcanvas__logo img {
+    height: 40px !important;
+    width: auto !important;
+    max-width: 165px !important;
+    object-fit: contain !important;
+}
+
+.preloader-logo {
+    height: 46px !important;
+    width: auto !important;
+    max-width: 180px !important;
+    object-fit: contain !important;
+}
+
+.auth-brand-logo img {
+    height: 46px !important;
+    width: auto !important;
+    max-width: 185px !important;
+    object-fit: contain !important;
+}
+
+.sidebar-logo img {
+    height: 38px !important;
+    width: auto !important;
+    max-width: 160px !important;
+    object-fit: contain !important;
+}
+
+.error-logo img {
+    height: 44px !important;
+    width: auto !important;
+    max-width: 180px !important;
+    object-fit: contain !important;
+}
+
+

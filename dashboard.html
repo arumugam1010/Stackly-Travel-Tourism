@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Redirecting to Dashboard | Restin Luxury Tours</title>
+    <link rel="shortcut icon" href="assets/img/favicon.svg">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/all.min.css">
+    <style>
+        body {
+            background: #0f1115;
+            color: #fff;
+            font-family: 'Barlow', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .loading-card {
+            text-align: center;
+            padding: 30px;
+        }
+        .spinner {
+            width: 48px;
+            height: 48px;
+            border: 3px solid rgba(170, 132, 83, 0.2);
+            border-top-color: #AA8453;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin: 0 auto 20px;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="loading-card">
+        <div class="spinner"></div>
+        <h4 style="font-size: 18px; margin-bottom: 8px;">Loading Your Dashboard...</h4>
+        <p style="color: #959aa5; font-size: 14px;">Resolving active role permissions</p>
+    </div>
+
+    <script src="assets/js/auth.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Automatically route to the user's role dashboard
+            RestinAuth.routeToDashboard();
+        });
+    </script>
+</body>
+</html>

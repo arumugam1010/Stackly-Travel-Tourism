@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Gramentheme">
+    <title>Tour Manager Dashboard | Restin Luxury Tours</title>
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="assets/img/favicon.svg">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <!-- FontAwesome CSS -->
+    <link rel="stylesheet" href="assets/css/all.min.css">
+    <!-- Main Template CSS -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <!-- Dashboard CSS -->
+    <link rel="stylesheet" href="assets/css/dashboard.css">
+</head>
+<body class="dashboard-body">
+
+    <!-- Mobile Drawer Overlay -->
+    <div class="dashboard-mobile-overlay"></div>
+
+    <div class="dashboard-wrapper">
+        
+        <!-- ==============================================================
+             SIDEBAR (EXACTLY 10 NAVIGATION ITEMS)
+             ============================================================== -->
+        <aside class="dashboard-sidebar">
+            
+            <!-- Sidebar Header & Logo -->
+            <div class="sidebar-header">
+                <a href="#overview" class="sidebar-logo" title="Dashboard Overview">
+                    <img src="assets/img/logo/stackly-white.webp" alt="Restin Tours Logo">
+                </a>
+                <button type="button" class="sidebar-close-btn" aria-label="Close sidebar">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Role Indicator Badge -->
+            <div class="sidebar-role-indicator">
+                <div class="role-badge-icon" style="color: #4dabf7; background: rgba(77, 171, 247, 0.15); border-color: rgba(77, 171, 247, 0.3);">
+                    <i class="fa-solid fa-compass"></i>
+                </div>
+                <div class="role-badge-info">
+                    <h6 class="user-name-display">Tour Manager</h6>
+                    <span style="color: #4dabf7;">Operations & Fleet</span>
+                </div>
+            </div>
+
+            <!-- 10 Navigation Items -->
+            <div class="sidebar-nav-container">
+                <div class="sidebar-nav-label">Main Menu</div>
+                <ul class="sidebar-menu">
+                    <!-- Item 1: Overview -->
+                    <li class="sidebar-menu-item active">
+                        <a href="#overview" class="sidebar-menu-link">
+                            <i class="item-icon fa-solid fa-compass"></i>
+                            <span>1. Operations Hub</span>
+                            <span class="item-count">Live</span>
+                        </a>
+                    </li>
+
+                    <!-- Item 2: Departures -->
+                    <li class="sidebar-menu-item">
+                        <a href="#departures" class="sidebar-menu-link">
+                            <i class="item-icon fa-solid fa-plane-departure"></i>
+                            <span>2. Guided Departures</span>
+                            <span class="item-count">14 Today</span>
+                        </a>
+                    </li>
+
+                    <!-- Item 3: Fleet & Coaches -->
+                    <li class="sidebar-menu-item">
+                        <a href="#fleet" class="sidebar-menu-link">
+                            <i class="item-icon fa-solid fa-bus"></i>
+                            <span>3. Fleet & Vehicles</span>
+                            <span class="item-count">24 Ready</span>
+                        </a>
+                    </li>
+
+                    <!-- Item 4: Guide Duty Roster -->
+                    <li class="sidebar-menu-item">
+                        <a href="#guide-shifts" class="sidebar-menu-link">
+                            <i class="item-icon fa-solid fa-id-badge"></i>
+                            <span>4. Guide Duty Roster</span>
+                            <span class="item-count">28 On Duty</span>
+                        </a>
+                    </li>
+
+                    <!-- Item 5: Passenger Manifests -->
+                    <li class="sidebar-menu-item">
+                        <a href="#manifest" class="sidebar-menu-link">
+                            <i class="item-icon fa-solid fa-clipboard-user"></i>
+                            <span>5. Guest Manifests</span>
+                            <span class="item-count">380 Pax</span>
+                        </a>
+                    </li>
+
+                    <!-- Item 6: Hotel & Lodge Vouchers -->
+                    <li class="sidebar-menu-item">
+                        <a href="#hotels" class="sidebar-menu-link">
+                            <i class="item-icon fa-solid fa-hotel"></i>
+                            <span>6. Hotel & Lodges</span>
+                            <span class="item-count">19</span>
+                        </a>
+                    </li>
+
+                    <!-- Item 7: Excursion Partners -->
+                    <li class="sidebar-menu-item">
+                        <a href="#vendors" class="sidebar-menu-link">
+                            <i class="item-icon fa-solid fa-handshake"></i>
+                            <span>7. Excursion Partners</span>
+                            <span class="item-count">15</span>
+                        </a>
+                    </li>
+
+                    <!-- Item 8: Safety & Incident Logs -->
+                    <li class="sidebar-menu-item">
+                        <a href="#incidents" class="sidebar-menu-link">
+                            <i class="item-icon fa-solid fa-shield-virus"></i>
+                            <span>8. Safety & Incident Logs</span>
+                            <span class="item-count">Clear</span>
+                        </a>
+                    </li>
+
+                    <!-- Item 9: Route GPS & Weather -->
+                    <li class="sidebar-menu-item">
+                        <a href="#tracking" class="sidebar-menu-link">
+                            <i class="item-icon fa-solid fa-satellite-dish"></i>
+                            <span>9. Route GPS & Weather</span>
+                            <span class="item-count">Live</span>
+                        </a>
+                    </li>
+
+                    <!-- Item 10: Shift Handover -->
+                    <li class="sidebar-menu-item">
+                        <a href="#handover" class="sidebar-menu-link">
+                            <i class="item-icon fa-solid fa-file-signature"></i>
+                            <span>10. Shift Handover</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Sidebar Footer -->
+            <div class="sidebar-footer">
+                <div class="sidebar-footer-links">
+                    <a href="index.html" class="sidebar-footer-link home-link">
+                        <i class="fa-solid fa-arrow-left"></i>
+                        <span>Return to Website</span>
+                    </a>
+                    <a href="#" onclick="RestinAuth.logout(event)" class="sidebar-footer-link logout-link">
+                        <i class="fa-solid fa-power-off"></i>
+                        <span>Sign Out Session</span>
+                    </a>
+                </div>
+            </div>
+
+        </aside>
+
+        <!-- ==============================================================
+             MAIN CONTENT
+             ============================================================== -->
+        <main class="dashboard-main">
+            
+            <!-- Topbar -->
+            <header class="dashboard-topbar">
+                <div class="topbar-left">
+                    <button type="button" class="mobile-hamburger-btn" aria-label="Toggle navigation">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                    <h1 class="dashboard-page-title">Operations & Fleet Portal</h1>
+                </div>
+
+                <div class="topbar-right">
+                    <!-- User Badge -->
+                    <div class="topbar-user-badge">
+                        <img src="assets/img/avatar-manager.svg" alt="User avatar" class="topbar-user-avatar" onerror="this.src='assets/img/avatar-manager.svg'">
+                        <div class="topbar-user-info">
+                            <span class="topbar-user-name">Tour Manager</span>
+                            <span class="topbar-user-role">Operations Lead</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <div class="dashboard-content-area">
+                
+                <!-- ==========================================
+                     VIEW 1: OPERATIONS HUB (OVERVIEW)
+                     ========================================== -->
+                <div id="view-overview" class="dashboard-view active">
+                    <!-- Welcome Banner -->
+                    <div class="dashboard-welcome-banner">
+                        <div class="welcome-info">
+                            <h2>Operations Hub, <span class="user-name-display">Tour Manager</span></h2>
+                            <p>Today's schedule: 14 guided departures, 28 tour guides active on route, fleet 92% readiness.</p>
+                        </div>
+                        <div class="welcome-actions">
+                            <!-- Action buttons redirect to 404.html -->
+                            <button type="button" class="dash-btn dash-btn-gold">
+                                <i class="fa-solid fa-van-shuttle"></i> Dispatch Fleet
+                            </button>
+                            <button type="button" class="dash-btn dash-btn-outline">
+                                <i class="fa-solid fa-user-plus"></i> Assign Guide
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- 4 KPI Metrics -->
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-header">
+                                <span class="stat-title">Departures Today</span>
+                                <div class="stat-icon blue"><i class="fa-solid fa-plane-departure"></i></div>
+                            </div>
+                            <div class="stat-value">14 Tours</div>
+                            <div class="stat-footer">
+                                <span class="stat-change positive"><i class="fa-solid fa-circle-check"></i> 100% on schedule</span>
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-header">
+                                <span class="stat-title">Guides On Duty</span>
+                                <div class="stat-icon green"><i class="fa-solid fa-id-badge"></i></div>
+                            </div>
+                            <div class="stat-value">28 / 32</div>
+                            <div class="stat-footer">
+                                <span class="stat-change positive">4 on standby</span>
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-header">
+                                <span class="stat-title">Fleet Ready</span>
+                                <div class="stat-icon gold"><i class="fa-solid fa-bus"></i></div>
+                            </div>
+                            <div class="stat-value">92%</div>
+                            <div class="stat-footer">
+                                <span class="stat-change neutral">24 luxury coaches</span>
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-header">
+                                <span class="stat-title">Travelers On Trip</span>
+                                <div class="stat-icon purple"><i class="fa-solid fa-people-group"></i></div>
+                            </div>
+                            <div class="stat-value">380 Pax</div>
+                            <div class="stat-footer">
+                                <span class="stat-change positive">+45 arrivals today</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2-Column Widgets Grid -->
+                    <div class="dashboard-grid-2col">
+                        <!-- Widget 1: Today's Tour Departures Manifest -->
+                        <div class="dashboard-card">
+                            <div class="card-header-bar">
+                                <h3 class="card-header-title">
+                                    <i class="fa-solid fa-route"></i> Today's Departure Manifest
+                                </h3>
+                                <button type="button" class="dash-btn dash-btn-outline dash-btn-sm">
+                                    <i class="fa-solid fa-download"></i> Manifest
+                                </button>
+                            </div>
+
+                            <div class="dash-table-responsive">
+                                <table class="dash-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Tour Name</th>
+                                            <th>Lead Guide</th>
+                                            <th>Vehicle</th>
+                                            <th>Depart Time</th>
+                                            <th>Status</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>Santorini Sunset Cruise</strong></td>
+                                            <td>Capt. Nikos</td>
+                                            <td>Yacht Star-II</td>
+                                            <td>03:30 PM</td>
+                                            <td><span class="status-badge status-confirmed">Boarding</span></td>
+                                            <td><button type="button" class="dash-btn dash-btn-outline dash-btn-sm">Track</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Kyoto Bamboo Forest Walk</strong></td>
+                                            <td>Kenji Sato</td>
+                                            <td>Van #09</td>
+                                            <td>04:00 PM</td>
+                                            <td><span class="status-badge status-active">En Route</span></td>
+                                            <td><button type="button" class="dash-btn dash-btn-outline dash-btn-sm">Track</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Dubai Dune Bashing Safari</strong></td>
+                                            <td>Tariq Mansoor</td>
+                                            <td>4x4 Convoy A</td>
+                                            <td>05:00 PM</td>
+                                            <td><span class="status-badge status-pending">Staging</span></td>
+                                            <td><button type="button" class="dash-btn dash-btn-outline dash-btn-sm">Track</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Swiss Glacier Express Ride</strong></td>
+                                            <td>Hans Zimmerman</td>
+                                            <td>Rail Car #4</td>
+                                            <td>06:15 PM</td>
+                                            <td><span class="status-badge status-confirmed">Confirmed</span></td>
+                                            <td><button type="button" class="dash-btn dash-btn-outline dash-btn-sm">Track</button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Widget 2: Operations Alerts & Fleet Status -->
+                        <div class="dashboard-card">
+                            <div class="card-header-bar">
+                                <h3 class="card-header-title">
+                                    <i class="fa-solid fa-triangle-exclamation"></i> Operations Notices
+                                </h3>
+                                <button type="button" class="dash-btn dash-btn-outline dash-btn-sm">Filter</button>
+                            </div>
+
+                            <ul class="activity-list">
+                                <li class="activity-item">
+                                    <div class="activity-icon" style="color:#51cf66; background: rgba(81,207,102,0.12);"><i class="fa-solid fa-circle-check"></i></div>
+                                    <div class="activity-details">
+                                        <div class="activity-text">Coach #12 scheduled maintenance finished. Ready for service.</div>
+                                        <div class="activity-time">15 mins ago</div>
+                                    </div>
+                                </li>
+                                <li class="activity-item">
+                                    <div class="activity-icon" style="color:#ff922b; background: rgba(255,146,43,0.12);"><i class="fa-solid fa-cloud-sun-rain"></i></div>
+                                    <div class="activity-details">
+                                        <div class="activity-text">Weather advisory issued for Swiss peak routes. Snow chains required.</div>
+                                        <div class="activity-time">45 mins ago</div>
+                                    </div>
+                                </li>
+                                <li class="activity-item">
+                                    <div class="activity-icon" style="color:#4dabf7; background: rgba(77,171,247,0.12);"><i class="fa-solid fa-hotel"></i></div>
+                                    <div class="activity-details">
+                                        <div class="activity-text">Hotel check-in confirmed for Group B in Melbourne.</div>
+                                        <div class="activity-time">1 hour ago</div>
+                                    </div>
+                                </li>
+                            </ul>
+
+                            <div class="mt-4 pt-3 border-top border-secondary border-opacity-10">
+                                <button type="button" class="dash-btn dash-btn-gold w-100 justify-content-center">
+                                    <i class="fa-solid fa-bullhorn"></i> Broadcast Emergency Alert
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==========================================
+                     VIEW 2: GUIDED DEPARTURES
+                     ========================================== -->
+                <div id="view-departures" class="dashboard-view">
+                    <div class="view-header">
+                        <div>
+                            <h2 class="view-header-title"><i class="fa-solid fa-plane-departure"></i> Guided Tour Departures Board</h2>
+                            <p class="view-header-desc">Live schedule and dispatch monitoring for all 14 departures scheduled today.</p>
+                        </div>
+                        <button type="button" class="dash-btn dash-btn-gold">
+                            <i class="fa-solid fa-plus"></i> Schedule Departure
+                        </button>
+                    </div>
+
+                    <div class="dashboard-card">
+                        <div class="dash-table-responsive">
+                            <table class="dash-table">
+                                <thead>
+                                    <tr>
+                                        <th>Flight / Coach</th>
+                                        <th>Tour Circuit</th>
+                                        <th>Terminal / Hub</th>
+                                        <th>Departure Time</th>
+                                        <th>Lead Guide</th>
+                                        <th>Pax Status</th>
+                                        <th>Dispatch</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><span class="dash-badge-pill dash-badge-blue">BUS-ALPS-01</span></td>
+                                        <td>Swiss Alps Luxury Safari</td>
+                                        <td>Zurich Central Gate A</td>
+                                        <td>08:30 AM</td>
+                                        <td>David Sterling</td>
+                                        <td>24 / 24 Checked In</td>
+                                        <td><span class="status-badge status-confirmed">En Route</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="dash-badge-pill dash-badge-purple">TRAIN-KYO-04</span></td>
+                                        <td>Kyoto Heritage Explorer</td>
+                                        <td>Kyoto Shinkansen Platform 3</td>
+                                        <td>09:15 AM</td>
+                                        <td>Aiko Tanaka</td>
+                                        <td>18 / 18 Checked In</td>
+                                        <td><span class="status-badge status-confirmed">Boarding</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="dash-badge-pill dash-badge-gold">BOAT-AMA-02</span></td>
+                                        <td>Amalfi Coast Yacht Tour</td>
+                                        <td>Positano Pier B</td>
+                                        <td>10:00 AM</td>
+                                        <td>Matteo Bianchi</td>
+                                        <td>12 / 12 Checked In</td>
+                                        <td><span class="status-badge status-pending">Pre-Check</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="dash-badge-pill dash-badge-gold">VIP-DXB-09</span></td>
+                                        <td>Dubai Desert Safari</td>
+                                        <td>Dubai Marina VIP Hub</td>
+                                        <td>14:00 PM</td>
+                                        <td>Fatima Al-Zahra</td>
+                                        <td>16 / 16 Scheduled</td>
+                                        <td><span class="status-badge status-pending">Standby</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==========================================
+                     VIEW 3: FLEET & VEHICLES
+                     ========================================== -->
+                <div id="view-fleet" class="dashboard-view">
+                    <div class="view-header">
+                        <div>
+                            <h2 class="view-header-title"><i class="fa-solid fa-bus"></i> Luxury Fleet & Vehicle Readiness</h2>
+                            <p class="view-header-desc">24 luxury Mercedes coaches, VIP sprinter vans, and private catamaran vessels.</p>
+                        </div>
+                        <button type="button" class="dash-btn dash-btn-gold">
+                            <i class="fa-solid fa-wrench"></i> Schedule Inspection
+                        </button>
+                    </div>
+
+                    <div class="grid-3col">
+                        <div class="dash-card-item">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="dash-badge-pill dash-badge-green">Coach #01 • Mercedes Travego</span>
+                                <span class="status-badge status-confirmed">Ready 98%</span>
+                            </div>
+                            <h4 class="text-white mb-2" style="font-size: 16px;">Alpine Cruiser Deluxe</h4>
+                            <div style="font-size: 13px; color: var(--dash-muted); margin-bottom: 12px;">
+                                <div><strong>Driver:</strong> Thomas Mueller (Certified Alps)</div>
+                                <div><strong>Fuel:</strong> 95% • <strong>Capacity:</strong> 32 VIP Seats</div>
+                                <div><strong>GPS:</strong> Lat 46.5197, Long 6.6323 (Lausanne)</div>
+                            </div>
+                            <div class="d-flex justify-content-between pt-2 border-top border-secondary border-opacity-10">
+                                <span style="font-size: 12px; color: #4ade80;"><i class="fa-solid fa-circle-check"></i> Inspection Valid</span>
+                                <button type="button" class="dash-btn dash-btn-outline dash-btn-sm">Telematics</button>
+                            </div>
+                        </div>
+
+                        <div class="dash-card-item">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="dash-badge-pill dash-badge-blue">Van #04 • Sprinter VIP</span>
+                                <span class="status-badge status-confirmed">Ready 100%</span>
+                            </div>
+                            <h4 class="text-white mb-2" style="font-size: 16px;">Kyoto Private Shuttle</h4>
+                            <div style="font-size: 13px; color: var(--dash-muted); margin-bottom: 12px;">
+                                <div><strong>Driver:</strong> Kenji Sato (English Fluent)</div>
+                                <div><strong>Fuel:</strong> 100% • <strong>Capacity:</strong> 14 VIP Seats</div>
+                                <div><strong>GPS:</strong> Gion District, Kyoto</div>
+                            </div>
+                            <div class="d-flex justify-content-between pt-2 border-top border-secondary border-opacity-10">
+                                <span style="font-size: 12px; color: #4ade80;"><i class="fa-solid fa-circle-check"></i> Cleaned & Stocked</span>
+                                <button type="button" class="dash-btn dash-btn-outline dash-btn-sm">Telematics</button>
+                            </div>
+                        </div>
+
+                        <div class="dash-card-item">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="dash-badge-pill dash-badge-gold">Catamaran #02 • 52ft Lagoon</span>
+                                <span class="status-badge status-confirmed">Ready 94%</span>
+                            </div>
+                            <h4 class="text-white mb-2" style="font-size: 16px;">Amalfi Siren Luxury Yacht</h4>
+                            <div style="font-size: 13px; color: var(--dash-muted); margin-bottom: 12px;">
+                                <div><strong>Captain:</strong> Matteo Bianchi</div>
+                                <div><strong>Fuel:</strong> 88% • <strong>Capacity:</strong> 16 Guests</div>
+                                <div><strong>Marina:</strong> Marina Grande, Capri</div>
+                            </div>
+                            <div class="d-flex justify-content-between pt-2 border-top border-secondary border-opacity-10">
+                                <span style="font-size: 12px; color: #dfaa67;"><i class="fa-solid fa-anchor"></i> Moored at Pier</span>
+                                <button type="button" class="dash-btn dash-btn-outline dash-btn-sm">Telematics</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==========================================
+                     VIEW 4: GUIDE DUTY ROSTER
+                     ========================================== -->
+                <div id="view-guide-shifts" class="dashboard-view">
+                    <div class="view-header">
+                        <div>
+                            <h2 class="view-header-title"><i class="fa-solid fa-id-badge"></i> Tour Guide Duty Roster</h2>
+                            <p class="view-header-desc">Real-time shift management for 28 active guides on excursion routes worldwide.</p>
+                        </div>
+                        <button type="button" class="dash-btn dash-btn-gold">
+                            <i class="fa-solid fa-calendar-plus"></i> Swap Shift
+                        </button>
+                    </div>
+
+                    <div class="dashboard-card">
+                        <div class="dash-table-responsive">
+                            <table class="dash-table">
+                                <thead>
+                                    <tr>
+                                        <th>Guide Name</th>
+                                        <th>Assigned Circuit</th>
+                                        <th>Shift Timing</th>
+                                        <th>Check-In Status</th>
+                                        <th>Radio / Comms</th>
+                                        <th>Duty Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>David Sterling</strong></td>
+                                        <td>Swiss Alps Glacier Expedition</td>
+                                        <td>07:30 AM - 18:00 PM</td>
+                                        <td><span class="status-badge status-confirmed">Checked In (07:15)</span></td>
+                                        <td>Channel 4 (Sat-Phone Active)</td>
+                                        <td><span class="dash-badge-pill dash-badge-green">On Tour</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Aiko Tanaka</strong></td>
+                                        <td>Kyoto Traditional Circuit</td>
+                                        <td>08:30 AM - 17:30 PM</td>
+                                        <td><span class="status-badge status-confirmed">Checked In (08:10)</span></td>
+                                        <td>Mobile +81 90-4921-xxxx</td>
+                                        <td><span class="dash-badge-pill dash-badge-green">On Tour</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Fatima Al-Zahra</strong></td>
+                                        <td>Dubai Desert Sunset Safari</td>
+                                        <td>13:00 PM - 22:00 PM</td>
+                                        <td><span class="status-badge status-pending">Standby Pool</span></td>
+                                        <td>Mobile +971 50-842-xxxx</td>
+                                        <td><span class="dash-badge-pill dash-badge-gold">On Standby</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==========================================
+                     VIEW 5: PASSENGER MANIFESTS
+                     ========================================== -->
+                <div id="view-manifest" class="dashboard-view">
+                    <div class="view-header">
+                        <div>
+                            <h2 class="view-header-title"><i class="fa-solid fa-clipboard-user"></i> Guest Manifests & Special Requests</h2>
+                            <p class="view-header-desc">380 active tour guests, emergency medical contacts, and dietary requirements.</p>
+                        </div>
+                        <button type="button" class="dash-btn dash-btn-gold">
+                            <i class="fa-solid fa-print"></i> Print Daily Manifest
+                        </button>
+                    </div>
+
+                    <div class="dashboard-card">
+                        <div class="dash-filter-bar mb-3">
+                            <div class="dash-search-box">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                                <input type="text" placeholder="Search passenger by name, passport...">
+                            </div>
+                            <button type="button" class="dash-btn dash-btn-outline dash-btn-sm">Filter: Dietary Alerts</button>
+                        </div>
+
+                        <div class="dash-table-responsive">
+                            <table class="dash-table">
+                                <thead>
+                                    <tr>
+                                        <th>Guest Name</th>
+                                        <th>Tour Circuit</th>
+                                        <th>Seat / Room</th>
+                                        <th>Dietary & Preferences</th>
+                                        <th>Emergency Contact</th>
+                                        <th>Passport Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Alexandre Dumas</strong></td>
+                                        <td>Swiss Alps Tour</td>
+                                        <td>Seat 12A • Room 304</td>
+                                        <td><span class="dash-badge-pill dash-badge-purple">Gluten-Free Chef Menu</span></td>
+                                        <td>+33 6 49 20 xx (Wife)</td>
+                                        <td><span class="status-badge status-confirmed">Verified FR</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Priya Sundaram</strong></td>
+                                        <td>Maldives Coral Retreat</td>
+                                        <td>Water Villa 108</td>
+                                        <td><span class="dash-badge-pill dash-badge-green">Strict Vegetarian / Jain</span></td>
+                                        <td>+91 98402 xxxxx (Brother)</td>
+                                        <td><span class="status-badge status-confirmed">Verified IN</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Elena Rostova</strong></td>
+                                        <td>Amalfi Coast Yacht Tour</td>
+                                        <td>VIP Suite 02</td>
+                                        <td><span class="dash-badge-pill dash-badge-gold">Nut Allergy Alert</span></td>
+                                        <td>+39 02 849 xxxx (Office)</td>
+                                        <td><span class="status-badge status-confirmed">Verified IT</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==========================================
+                     VIEW 6: HOTEL & LODGES
+                     ========================================== -->
+                <div id="view-hotels" class="dashboard-view">
+                    <div class="view-header">
+                        <div>
+                            <h2 class="view-header-title"><i class="fa-solid fa-hotel"></i> Hotel & Luxury Lodge Vouchers</h2>
+                            <p class="view-header-desc">19 premium partner properties, check-in confirmations, and group rooming lists.</p>
+                        </div>
+                        <button type="button" class="dash-btn dash-btn-gold">
+                            <i class="fa-solid fa-paper-plane"></i> Transmit Rooming Lists
+                        </button>
+                    </div>
+
+                    <div class="grid-3col">
+                        <div class="dash-card-item">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="dash-badge-pill dash-badge-gold">Zermatt, Switzerland</span>
+                                <span class="status-badge status-confirmed">12 Rooms Confirmed</span>
+                            </div>
+                            <h4 class="text-white mb-2" style="font-size: 16px;">The Omnia Mountain Lodge</h4>
+                            <p style="font-size: 13px; color: var(--dash-muted); margin-bottom: 12px;">Concierge: Marcus Keller • Check-in: Today, 14:00. Luggage transfers booked.</p>
+                            <div class="d-flex justify-content-between pt-2 border-top border-secondary border-opacity-10">
+                                <span style="font-size: 12px; color: #4ade80;">Voucher #HTL-9402</span>
+                                <button type="button" class="dash-btn dash-btn-outline dash-btn-sm">Rooming List</button>
+                            </div>
+                        </div>
+
+                        <div class="dash-card-item">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="dash-badge-pill dash-badge-blue">North Malé Atoll</span>
+                                <span class="status-badge status-confirmed">6 Villas Confirmed</span>
+                            </div>
+                            <h4 class="text-white mb-2" style="font-size: 16px;">Gili Lankanfushi Lagoon</h4>
+                            <p style="font-size: 13px; color: var(--dash-muted); margin-bottom: 12px;">Concierge: Hassan Rasheed • Private butler assigned for all 6 villas.</p>
+                            <div class="d-flex justify-content-between pt-2 border-top border-secondary border-opacity-10">
+                                <span style="font-size: 12px; color: #4ade80;">Voucher #HTL-8820</span>
+                                <button type="button" class="dash-btn dash-btn-outline dash-btn-sm">Rooming List</button>
+                            </div>
+                        </div>
+
+                        <div class="dash-card-item">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="dash-badge-pill dash-badge-purple">Kyoto, Japan</span>
+                                <span class="status-badge status-confirmed">8 Ryokan Suites</span>
+                            </div>
+                            <h4 class="text-white mb-2" style="font-size: 16px;">Hoshinoya Kyoto Luxury</h4>
+                            <p style="font-size: 13px; color: var(--dash-muted); margin-bottom: 12px;">Boat check-in via Oi River. Kaiseki dinner scheduled for 19:30 PM.</p>
+                            <div class="d-flex justify-content-between pt-2 border-top border-secondary border-opacity-10">
+                                <span style="font-size: 12px; color: #4ade80;">Voucher #HTL-7719</span>
+                                <button type="button" class="dash-btn dash-btn-outline dash-btn-sm">Rooming List</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==========================================
+                     VIEW 7: EXCURSION PARTNERS
+                     ========================================== -->
+                <div id="view-vendors" class="dashboard-view">
+                    <div class="view-header">
+                        <div>
+                            <h2 class="view-header-title"><i class="fa-solid fa-handshake"></i> Local Excursion & Vendor Partners</h2>
+                            <p class="view-header-desc">15 authorized helicopter operators, boat charters, and cultural experiences.</p>
+                        </div>
+                        <button type="button" class="dash-btn dash-btn-gold">
+                            <i class="fa-solid fa-file-contract"></i> Add Vendor Contract
+                        </button>
+                    </div>
+
+                    <div class="grid-3col">
+                        <div class="dash-card-item">
+                            <h4 class="text-white mb-2" style="font-size: 16px;">Air Zermatt Alpine Helicopters</h4>
+                            <div style="font-size: 13px; color: var(--dash-muted); margin-bottom: 12px;">
+                                <div><strong>Service:</strong> Matterhorn Glacier Scenic Flights</div>
+                                <div><strong>Safety Audit:</strong> Class A (Sept 2026)</div>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center pt-2 border-top border-secondary border-opacity-10">
+                                <span class="status-badge status-confirmed">Active Contract</span>
+                                <button type="button" class="dash-btn dash-btn-outline dash-btn-sm">View Terms</button>
+                            </div>
+                        </div>
+
+                        <div class="dash-card-item">
+                            <h4 class="text-white mb-2" style="font-size: 16px;">Capri Sea Charters</h4>
+                            <div style="font-size: 13px; color: var(--dash-muted); margin-bottom: 12px;">
+                                <div><strong>Service:</strong> Blue Grotto & Faraglioni Private Yachting</div>
+                                <div><strong>Safety Audit:</strong> RINA Verified</div>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center pt-2 border-top border-secondary border-opacity-10">
+                                <span class="status-badge status-confirmed">Active Contract</span>
+                                <button type="button" class="dash-btn dash-btn-outline dash-btn-sm">View Terms</button>
+                            </div>
+                        </div>
+
+                        <div class="dash-card-item">
+                            <h4 class="text-white mb-2" style="font-size: 16px;">Dubai Royal Desert Camps</h4>
+                            <div style="font-size: 13px; color: var(--dash-muted); margin-bottom: 12px;">
+                                <div><strong>Service:</strong> Private Dune Dinners & Falconry</div>
+                                <div><strong>Safety Audit:</strong> DTCM Approved</div>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center pt-2 border-top border-secondary border-opacity-10">
+                                <span class="status-badge status-confirmed">Active Contract</span>
+                                <button type="button" class="dash-btn dash-btn-outline dash-btn-sm">View Terms</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==========================================
+                     VIEW 8: SAFETY & INCIDENTS
+                     ========================================== -->
+                <div id="view-incidents" class="dashboard-view">
+                    <div class="view-header">
+                        <div>
+                            <h2 class="view-header-title"><i class="fa-solid fa-shield-virus"></i> Safety & Incident Log</h2>
+                            <p class="view-header-desc">Global safety monitoring, emergency protocols, and daily safety audit.</p>
+                        </div>
+                        <button type="button" class="dash-btn dash-btn-gold">
+                            <i class="fa-solid fa-triangle-exclamation"></i> Log Incident
+                        </button>
+                    </div>
+
+                    <div class="dashboard-card">
+                        <div class="d-flex align-items-center gap-3 p-3 mb-3" style="background: rgba(34, 197, 94, 0.1); border: 1px solid rgba(34, 197, 94, 0.3); border-radius: 8px;">
+                            <i class="fa-solid fa-circle-check text-success" style="font-size: 24px;"></i>
+                            <div>
+                                <h4 class="text-white m-0" style="font-size: 15px;">All Global Circuits Operating Under Normal Safety Advisory</h4>
+                                <span style="font-size: 12px; color: #4ade80;">Zero critical incidents reported in the last 180 days. All emergency satellite devices operational.</span>
+                            </div>
+                        </div>
+
+                        <div class="dash-table-responsive">
+                            <table class="dash-table">
+                                <thead>
+                                    <tr>
+                                        <th>Date & Time</th>
+                                        <th>Circuit</th>
+                                        <th>Reported By</th>
+                                        <th>Category</th>
+                                        <th>Summary</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Oct 27, 14:20</td>
+                                        <td>Swiss Alps</td>
+                                        <td>David Sterling</td>
+                                        <td>Weather Delay</td>
+                                        <td>Gornergrat train delayed by 15 mins due to high winds. Group re-routed safely to Matterhorn Museum.</td>
+                                        <td><span class="status-badge status-confirmed">Resolved</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Oct 24, 11:00</td>
+                                        <td>Kyoto</td>
+                                        <td>Aiko Tanaka</td>
+                                        <td>Minor First-Aid</td>
+                                        <td>Guest twisted ankle on shrine stairs. Applied cold pack, full recovery confirmed.</td>
+                                        <td><span class="status-badge status-confirmed">Resolved</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==========================================
+                     VIEW 9: ROUTE GPS & WEATHER
+                     ========================================== -->
+                <div id="view-tracking" class="dashboard-view">
+                    <div class="view-header">
+                        <div>
+                            <h2 class="view-header-title"><i class="fa-solid fa-satellite-dish"></i> Route GPS Telemetry & Weather Forecast</h2>
+                            <p class="view-header-desc">Satellite coordinates, high-altitude alpine weather feeds, and marine radar.</p>
+                        </div>
+                        <button type="button" class="dash-btn dash-btn-outline">
+                            <i class="fa-solid fa-arrows-rotate"></i> Refresh Satellite
+                        </button>
+                    </div>
+
+                    <div class="grid-3col">
+                        <div class="dash-card-item">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="dash-badge-pill dash-badge-blue">Zermatt 3,089m</span>
+                                <span class="status-badge status-confirmed">Sunny 4°C</span>
+                            </div>
+                            <h4 class="text-white mb-2" style="font-size: 16px;">Gornergrat Ridge</h4>
+                            <p style="font-size: 13px; color: var(--dash-muted);">Visibility: 25 km • Wind: 12 km/h NW • Avalanche Hazard: Level 1 (Low)</p>
+                            <div class="d-flex justify-content-between pt-2 border-top border-secondary border-opacity-10">
+                                <span style="font-size: 12px; color: #4ade80;">Clear Skies</span>
+                                <button type="button" class="dash-btn dash-btn-outline dash-btn-sm">Live Webcam</button>
+                            </div>
+                        </div>
+
+                        <div class="dash-card-item">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="dash-badge-pill dash-badge-gold">Capri Coast</span>
+                                <span class="status-badge status-confirmed">Sunny 24°C</span>
+                            </div>
+                            <h4 class="text-white mb-2" style="font-size: 16px;">Gulf of Naples Marine</h4>
+                            <p style="font-size: 13px; color: var(--dash-muted);">Wave Height: 0.4m • Water Temp: 21°C • Marine Advisory: Calm seas</p>
+                            <div class="d-flex justify-content-between pt-2 border-top border-secondary border-opacity-10">
+                                <span style="font-size: 12px; color: #4ade80;">Optimal Cruising</span>
+                                <button type="button" class="dash-btn dash-btn-outline dash-btn-sm">Marine Radar</button>
+                            </div>
+                        </div>
+
+                        <div class="dash-card-item">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="dash-badge-pill dash-badge-purple">Kyoto Valley</span>
+                                <span class="status-badge status-confirmed">Clear 19°C</span>
+                            </div>
+                            <h4 class="text-white mb-2" style="font-size: 16px;">Arashiyama Bamboo Forest</h4>
+                            <p style="font-size: 13px; color: var(--dash-muted);">Humidity: 55% • Rain Probability: 0% • Autumn foliage at peak index</p>
+                            <div class="d-flex justify-content-between pt-2 border-top border-secondary border-opacity-10">
+                                <span style="font-size: 12px; color: #4ade80;">Ideal Excursion</span>
+                                <button type="button" class="dash-btn dash-btn-outline dash-btn-sm">Weather Map</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==========================================
+                     VIEW 10: SHIFT HANDOVER
+                     ========================================== -->
+                <div id="view-handover" class="dashboard-view">
+                    <div class="view-header">
+                        <div>
+                            <h2 class="view-header-title"><i class="fa-solid fa-file-signature"></i> Shift Handover & Daily Manager Notes</h2>
+                            <p class="view-header-desc">Formal tour manager duty log, pending operational tasks, and night handover checklist.</p>
+                        </div>
+                        <button type="button" class="dash-btn dash-btn-gold">
+                            <i class="fa-solid fa-check-double"></i> Complete Handover Sign-off
+                        </button>
+                    </div>
+
+                    <div class="dashboard-card">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="text-white mb-2" style="font-size: 13px;">Tour Manager on Duty</label>
+                                <input type="text" class="dash-search-box w-100" value="Saravanan - Operations Lead" readonly>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="text-white mb-2" style="font-size: 13px;">Receiving Operations Lead</label>
+                                <input type="text" class="dash-search-box w-100" value="Michael Roberts - Evening Shift" readonly>
+                            </div>
+                            <div class="col-12">
+                                <label class="text-white mb-2" style="font-size: 13px;">Handover Briefing Notes</label>
+                                <textarea class="dash-search-box w-100" rows="4" style="background: rgba(255,255,255,0.05); color: #fff; border-radius: 8px; padding: 10px;" readonly>
+1. All 14 departures today were dispatched on time with zero delay.
+2. Alexandre Dumas group checked into The Omnia Hotel without issues.
+3. Coach #01 scheduled for routine tire rotation tonight at 23:00.
+4. Tomorrow morning: 8 departures scheduled starting at 08:00 AM.</textarea>
+                            </div>
+                        </div>
+                        <div class="mt-4 pt-3 border-top border-secondary border-opacity-10 d-flex justify-content-end">
+                            <button type="button" class="dash-btn dash-btn-gold">
+                                <i class="fa-solid fa-signature"></i> Digitally Sign Handover Log
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+
+    </div>
+
+    <!-- Core Scripts -->
+    <script src="assets/js/jquery-3.7.1.min.js"></script>
+    <script src="assets/js/auth.js"></script>
+    <script src="assets/js/dashboard.js"></script>
+</body>
+</html>

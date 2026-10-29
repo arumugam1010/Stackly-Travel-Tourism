@@ -1,0 +1,366 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Gramentheme">
+    <meta name="description" content="Sign In - Restin Luxury Tours & Travels Agency">
+    <title>Login | Restin Luxury Tours & Travels</title>
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="assets/img/favicon.svg">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <!-- FontAwesome CSS -->
+    <link rel="stylesheet" href="assets/css/all.min.css">
+    <!-- Main Template CSS -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <!-- Custom Auth CSS -->
+    <link rel="stylesheet" href="assets/css/auth-custom.css">
+</head>
+<body class="auth-page-body">
+
+    <!-- Toast Notification Container -->
+    <div id="authToast" class="auth-toast">
+        <i id="toastIcon" class="fa-solid fa-circle-check"></i>
+        <div id="toastMessage">Success message</div>
+    </div>
+
+    <!-- Auth Hero Section -->
+    <section class="auth-hero-section" style="background-image: url('assets/img/home-1/hero/bg.webp');">
+        <div class="auth-hero-overlay"></div>
+
+        <div class="auth-container">
+            <!-- Back to Home -->
+            <div>
+                <a href="index.html" class="back-to-home-link">
+                    <i class="fa-solid fa-arrow-left"></i> Return to Homepage
+                </a>
+            </div>
+
+            <div class="auth-card">
+                <!-- Header / Logo -->
+                <div class="auth-header">
+                    <a href="index.html" class="auth-brand-logo">
+                        <img src="assets/img/logo/stackly-white.webp" alt="Restin Tours Logo">
+                    </a>
+                    <h2 class="auth-title">Welcome Back</h2>
+                    <p class="auth-subtitle">Select your account role and sign in with your credentials</p>
+                </div>
+
+                <!-- Demo helper -->
+                <div class="auth-demo-helper">
+                    <span><i class="fa-solid fa-sparkles me-1 text-warning"></i> Any valid Email & Strong Password will log you in!</span>
+                    <button type="button" class="demo-fill-btn" id="fillDemoBtn">
+                        <i class="fa-solid fa-wand-magic-sparkles me-1"></i> Auto-fill Valid
+                    </button>
+                </div>
+
+                <form id="loginForm" novalidate autocomplete="on">
+                    
+                    <!-- 1. Role Selection (3 Roles Required) -->
+                    <div class="role-select-section">
+                        <label class="role-select-label">
+                            <i class="fa-solid fa-users-gear me-1"></i> Choose Your Dashboard Role
+                        </label>
+                        <div class="role-grid">
+                            
+                            <!-- Role 1: Administrator -->
+                            <label class="role-card active" data-role="admin">
+                                <input type="radio" name="authRole" value="admin" checked>
+                                <i class="role-check fa-solid fa-circle-check"></i>
+                                <i class="role-icon fa-solid fa-crown"></i>
+                                <div class="role-info">
+                                    <span class="role-name">Administrator</span>
+                                    <span class="role-desc">Full Analytics & Control</span>
+                                </div>
+                            </label>
+
+                            <!-- Role 2: Tour Manager -->
+                            <label class="role-card" data-role="manager">
+                                <input type="radio" name="authRole" value="manager">
+                                <i class="role-check fa-solid fa-circle-check"></i>
+                                <i class="role-icon fa-solid fa-compass"></i>
+                                <div class="role-info">
+                                    <span class="role-name">Tour Manager</span>
+                                    <span class="role-desc">Fleet, Guides & Trips</span>
+                                </div>
+                            </label>
+
+                            <!-- Role 3: Traveler / Customer -->
+                            <label class="role-card" data-role="traveler">
+                                <input type="radio" name="authRole" value="traveler">
+                                <i class="role-check fa-solid fa-circle-check"></i>
+                                <i class="role-icon fa-solid fa-plane-departure"></i>
+                                <div class="role-info">
+                                    <span class="role-name">Traveler</span>
+                                    <span class="role-desc">Bookings & Itineraries</span>
+                                </div>
+                            </label>
+
+                        </div>
+                    </div>
+
+                    <!-- 2. Email Field with live validation -->
+                    <div class="auth-input-group">
+                        <label for="emailInput">
+                            <span><i class="fa-regular fa-envelope me-1"></i> Email Address</span>
+                            <span id="emailStatus" class="text-muted font-monospace" style="font-size: 11px;">Required</span>
+                        </label>
+                        <div class="auth-input-wrapper">
+                            <input type="email" id="emailInput" class="auth-input" placeholder="e.g. saravanan@example.com" required autocomplete="email">
+                            <i class="input-icon fa-regular fa-envelope"></i>
+                        </div>
+                        <div id="emailFeedback" class="input-feedback">Please enter a valid email address (e.g., name@domain.com)</div>
+                    </div>
+
+                    <!-- 3. Password Field with 5-Criteria validation -->
+                    <div class="auth-input-group">
+                        <label for="passwordInput">
+                            <span><i class="fa-solid fa-lock me-1"></i> Password</span>
+                            <span id="passStatus" class="text-muted font-monospace" style="font-size: 11px;">Strict validation</span>
+                        </label>
+                        <div class="auth-input-wrapper">
+                            <input type="password" id="passwordInput" class="auth-input" placeholder="Enter your strong password" required autocomplete="current-password">
+                            <i class="input-icon fa-solid fa-lock"></i>
+                            <button type="button" class="toggle-password-btn" id="togglePasswordBtn" title="Show / Hide Password">
+                                <i class="fa-regular fa-eye" id="eyeIcon"></i>
+                            </button>
+                        </div>
+
+                        <!-- Interactive Password Criteria Box -->
+                        <div class="password-criteria-box">
+                            <div class="criteria-title">
+                                <span>Password Requirements</span>
+                                <span class="strength-tag" id="strengthTag">Enter password</span>
+                            </div>
+                            <ul class="criteria-list">
+                                <li class="criteria-item" id="crit-length">
+                                    <i class="fa-regular fa-circle"></i> At least 8 characters
+                                </li>
+                                <li class="criteria-item" id="crit-upper">
+                                    <i class="fa-regular fa-circle"></i> Uppercase letter (A-Z)
+                                </li>
+                                <li class="criteria-item" id="crit-lower">
+                                    <i class="fa-regular fa-circle"></i> Lowercase letter (a-z)
+                                </li>
+                                <li class="criteria-item" id="crit-number">
+                                    <i class="fa-regular fa-circle"></i> At least 1 number (0-9)
+                                </li>
+                                <li class="criteria-item" id="crit-symbol" style="grid-column: span 2;">
+                                    <i class="fa-regular fa-circle"></i> Special symbol (!@#$%^&*...)
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- 4. Submit Button -->
+                    <button type="submit" class="auth-submit-btn" id="loginSubmitBtn">
+                        <i class="fa-solid fa-right-to-bracket"></i> Sign In to Dashboard
+                    </button>
+
+                </form>
+
+                <!-- Footer Navigation -->
+                <div class="auth-footer-nav">
+                    Don't have an account? 
+                    <a href="register.html">Create an Account <i class="fa-solid fa-arrow-right ms-1"></i></a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Scripts -->
+    <script src="assets/js/jquery-3.7.1.min.js"></script>
+    <script src="assets/js/auth.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('loginForm');
+            const emailInput = document.getElementById('emailInput');
+            const passwordInput = document.getElementById('passwordInput');
+            const emailFeedback = document.getElementById('emailFeedback');
+            const emailStatus = document.getElementById('emailStatus');
+            const togglePasswordBtn = document.getElementById('togglePasswordBtn');
+            const eyeIcon = document.getElementById('eyeIcon');
+            const fillDemoBtn = document.getElementById('fillDemoBtn');
+            const roleCards = document.querySelectorAll('.role-card');
+            const authToast = document.getElementById('authToast');
+            const toastIcon = document.getElementById('toastIcon');
+            const toastMessage = document.getElementById('toastMessage');
+
+            // Criteria elements
+            const critLength = document.getElementById('crit-length');
+            const critUpper = document.getElementById('crit-upper');
+            const critLower = document.getElementById('crit-lower');
+            const critNumber = document.getElementById('crit-number');
+            const critSymbol = document.getElementById('crit-symbol');
+            const strengthTag = document.getElementById('strengthTag');
+
+            // 1. Role Card Selection click handler
+            roleCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    roleCards.forEach(c => c.classList.remove('active'));
+                    this.classList.add('active');
+                    const radio = this.querySelector('input[type="radio"]');
+                    if (radio) radio.checked = true;
+                });
+            });
+
+            // 2. Password Toggle Show/Hide
+            togglePasswordBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                if (passwordInput.type === 'password') {
+                    passwordInput.type = 'text';
+                    eyeIcon.className = 'fa-regular fa-eye-slash';
+                } else {
+                    passwordInput.type = 'password';
+                    eyeIcon.className = 'fa-regular fa-eye';
+                }
+            });
+
+            // 3. Live Email Validation
+            function checkEmail() {
+                const val = emailInput.value.trim();
+                if (!val) {
+                    emailFeedback.className = 'input-feedback is-invalid';
+                    emailFeedback.textContent = 'Email address cannot be empty.';
+                    emailStatus.textContent = 'Invalid';
+                    emailStatus.className = 'text-danger font-monospace';
+                    return false;
+                }
+                const isValid = RestinAuth.validateEmail(val);
+                if (!isValid) {
+                    emailFeedback.className = 'input-feedback is-invalid';
+                    emailFeedback.textContent = 'Please enter a valid email format (e.g. name@domain.com)';
+                    emailStatus.textContent = 'Invalid format';
+                    emailStatus.className = 'text-danger font-monospace';
+                    return false;
+                } else {
+                    emailFeedback.className = 'input-feedback is-valid';
+                    emailFeedback.textContent = 'Valid email address';
+                    emailStatus.textContent = '✓ Valid';
+                    emailStatus.className = 'text-success font-monospace';
+                    return true;
+                }
+            }
+
+            emailInput.addEventListener('input', checkEmail);
+
+            // 4. Live Password 5-Criteria Validation
+            function checkPassword() {
+                const val = passwordInput.value;
+                const result = RestinAuth.validatePassword(val);
+
+                // Update checklist items
+                function setCrit(el, isValid) {
+                    const icon = el.querySelector('i');
+                    if (isValid) {
+                        el.className = 'criteria-item valid';
+                        icon.className = 'fa-solid fa-circle-check';
+                    } else {
+                        el.className = 'criteria-item invalid';
+                        icon.className = 'fa-regular fa-circle';
+                    }
+                }
+
+                setCrit(critLength, result.length);
+                setCrit(critUpper, result.uppercase);
+                setCrit(critLower, result.lowercase);
+                setCrit(critNumber, result.number);
+                setCrit(critSymbol, result.symbol);
+
+                // Strength badge
+                if (result.score === 5) {
+                    strengthTag.textContent = 'Strong ✓';
+                    strengthTag.style.background = '#2b8a3e';
+                    strengthTag.style.color = '#fff';
+                } else if (result.score >= 3) {
+                    strengthTag.textContent = `${result.score}/5 Criteria Met`;
+                    strengthTag.style.background = '#e67700';
+                    strengthTag.style.color = '#fff';
+                } else if (val.length > 0) {
+                    strengthTag.textContent = `${result.score}/5 Weak`;
+                    strengthTag.style.background = '#c92a2a';
+                    strengthTag.style.color = '#fff';
+                } else {
+                    strengthTag.textContent = 'Enter password';
+                    strengthTag.style.background = 'rgba(255,255,255,0.1)';
+                    strengthTag.style.color = '#a3a6ad';
+                }
+
+                return result.isValid;
+            }
+
+            passwordInput.addEventListener('input', checkPassword);
+
+            // 5. Auto-Fill Demo Credentials Button
+            fillDemoBtn.addEventListener('click', function() {
+                const selectedRoleRadio = document.querySelector('input[name="authRole"]:checked');
+                const role = selectedRoleRadio ? selectedRoleRadio.value : 'admin';
+                emailInput.value = `${role}@restin.com`;
+                passwordInput.value = 'Restin@2026';
+                checkEmail();
+                checkPassword();
+                showToast(`Filled credentials for ${role.toUpperCase()} role`, 'success');
+            });
+
+            // Toast helper
+            function showToast(message, type) {
+                toastMessage.textContent = message;
+                if (type === 'success') {
+                    authToast.className = 'auth-toast show toast-success';
+                    toastIcon.className = 'fa-solid fa-circle-check text-success';
+                } else {
+                    authToast.className = 'auth-toast show toast-error';
+                    toastIcon.className = 'fa-solid fa-triangle-exclamation text-danger';
+                }
+                setTimeout(() => {
+                    authToast.classList.remove('show');
+                }, 3500);
+            }
+
+            // 6. Form Submission
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                const isEmailValid = checkEmail();
+                const isPassValid = checkPassword();
+
+                if (!isEmailValid) {
+                    showToast('Please provide a valid email address.', 'error');
+                    emailInput.focus();
+                    return;
+                }
+
+                if (!isPassValid) {
+                    showToast('Password must meet all 5 criteria (8+ chars, upper, lower, num, symbol).', 'error');
+                    passwordInput.focus();
+                    return;
+                }
+
+                // Get selected role
+                const selectedRadio = document.querySelector('input[name="authRole"]:checked');
+                const role = selectedRadio ? selectedRadio.value : 'admin';
+
+                // Save user session
+                const user = {
+                    email: emailInput.value.trim(),
+                    name: emailInput.value.trim().split('@')[0],
+                    role: role
+                };
+
+                const session = RestinAuth.setCurrentUser(user);
+
+                showToast(`Login successful! Redirecting to ${session.roleTitle} Dashboard...`, 'success');
+
+                // Smooth redirect to the selected role dashboard
+                setTimeout(function() {
+                    window.location.href = session.dashboardUrl;
+                }, 900);
+            });
+        });
+    </script>
+</body>
+</html>

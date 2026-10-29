@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Gramentheme">
+    <title>Traveler Dashboard | Restin Luxury Tours</title>
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="assets/img/favicon.svg">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <!-- FontAwesome CSS -->
+    <link rel="stylesheet" href="assets/css/all.min.css">
+    <!-- Main Template CSS -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <!-- Dashboard CSS -->
+    <link rel="stylesheet" href="assets/css/dashboard.css">
+</head>
+<body class="dashboard-body">
+
+    <!-- Mobile Drawer Overlay -->
+    <div class="dashboard-mobile-overlay"></div>
+
+    <div class="dashboard-wrapper">
+        
+        <!-- ==============================================================
+             SIDEBAR (EXACTLY 10 NAVIGATION ITEMS)
+             ============================================================== -->
+        <aside class="dashboard-sidebar">
+            
+            <!-- Sidebar Header & Logo -->
+            <div class="sidebar-header">
+                <a href="#overview" class="sidebar-logo" title="Dashboard Overview">
+                    <img src="assets/img/logo/stackly-white.webp" alt="Restin Tours Logo">
+                </a>
+                <button type="button" class="sidebar-close-btn" aria-label="Close sidebar">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Role Indicator Badge -->
+            <div class="sidebar-role-indicator">
+                <div class="role-badge-icon" style="color: #51cf66; background: rgba(81, 207, 102, 0.15); border-color: rgba(81, 207, 102, 0.3);">
+                    <i class="fa-solid fa-plane-departure"></i>
+                </div>
+                <div class="role-badge-info">
+                    <h6 class="user-name-display">Traveler</h6>
+                    <span style="color: #51cf66;">Luxury Traveler</span>
+                </div>
+            </div>
+
+            <!-- 10 Navigation Items -->
+            <div class="sidebar-nav-container">
+                <div class="sidebar-nav-label">Main Menu</div>
+                <ul class="sidebar-menu">
+                    <!-- Item 1: Overview -->
+                    <li class="sidebar-menu-item active">
+                        <a href="#overview" class="sidebar-menu-link">
+                            <i class="item-icon fa-solid fa-house-chimney-window"></i>
+                            <span>1. My Travel Hub</span>
+                            <span class="item-count">Active</span>
+                        </a>
+                    </li>
+
+                    <!-- Item 2: My Trips & Bookings -->
+                    <li class="sidebar-menu-item">
+                        <a href="#my-bookings" class="sidebar-menu-link">
+                            <i class="item-icon fa-solid fa-suitcase-rolling"></i>
+                            <span>2. My Bookings</span>
+                            <span class="item-count">3 Tours</span>
+                        </a>
+                    </li>
+
+                    <!-- Item 3: Boarding Passes & Tickets -->
+                    <li class="sidebar-menu-item">
+                        <a href="#tickets" class="sidebar-menu-link">
+                            <i class="item-icon fa-solid fa-ticket"></i>
+                            <span>3. Digital Boarding Passes</span>
+                            <span class="item-count">2 Ready</span>
+                        </a>
+                    </li>
+
+                    <!-- Item 4: Itineraries -->
+                    <li class="sidebar-menu-item">
+                        <a href="#itinerary" class="sidebar-menu-link">
+                            <i class="item-icon fa-solid fa-map-location-dot"></i>
+                            <span>4. Day-by-Day Itinerary</span>
+                        </a>
+                    </li>
+
+                    <!-- Item 5: Wishlist -->
+                    <li class="sidebar-menu-item">
+                        <a href="#wishlist" class="sidebar-menu-link">
+                            <i class="item-icon fa-solid fa-heart"></i>
+                            <span>5. Saved Dream Wishlist</span>
+                            <span class="item-count">6 Saved</span>
+                        </a>
+                    </li>
+
+                    <!-- Item 6: Loyalty & Points -->
+                    <li class="sidebar-menu-item">
+                        <a href="#rewards" class="sidebar-menu-link">
+                            <i class="item-icon fa-solid fa-medal"></i>
+                            <span>6. Loyalty & Rewards</span>
+                            <span class="item-count">4.8k Pts</span>
+                        </a>
+                    </li>
+
+                    <!-- Item 7: Payment Receipts -->
+                    <li class="sidebar-menu-item">
+                        <a href="#invoices" class="sidebar-menu-link">
+                            <i class="item-icon fa-solid fa-file-invoice-dollar"></i>
+                            <span>7. Payment Receipts</span>
+                            <span class="item-count">3 Paid</span>
+                        </a>
+                    </li>
+
+                    <!-- Item 8: Trip Memories & Photos -->
+                    <li class="sidebar-menu-item">
+                        <a href="#memories" class="sidebar-menu-link">
+                            <i class="item-icon fa-solid fa-camera-retro"></i>
+                            <span>8. Memories & Reviews</span>
+                        </a>
+                    </li>
+
+                    <!-- Item 9: Visa & Documents -->
+                    <li class="sidebar-menu-item">
+                        <a href="#documents" class="sidebar-menu-link">
+                            <i class="item-icon fa-solid fa-passport"></i>
+                            <span>9. Visa & Documents</span>
+                            <span class="item-count">Verified</span>
+                        </a>
+                    </li>
+
+                    <!-- Item 10: Traveler Preferences -->
+                    <li class="sidebar-menu-item">
+                        <a href="#profile" class="sidebar-menu-link">
+                            <i class="item-icon fa-solid fa-user-gear"></i>
+                            <span>10. Traveler Preferences</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Sidebar Footer -->
+            <div class="sidebar-footer">
+                <div class="sidebar-footer-links">
+                    <a href="index.html" class="sidebar-footer-link home-link">
+                        <i class="fa-solid fa-arrow-left"></i>
+                        <span>Return to Website</span>
+                    </a>
+                    <a href="#" onclick="RestinAuth.logout(event)" class="sidebar-footer-link logout-link">
+                        <i class="fa-solid fa-power-off"></i>
+                        <span>Sign Out Session</span>
+                    </a>
+                </div>
+            </div>
+
+        </aside>
+
+        <!-- ==============================================================
+             MAIN CONTENT
+             ============================================================== -->
+        <main class="dashboard-main">
+            
+            <!-- Topbar -->
+            <header class="dashboard-topbar">
+                <div class="topbar-left">
+                    <button type="button" class="mobile-hamburger-btn" aria-label="Toggle navigation">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                    <h1 class="dashboard-page-title">My Travel Hub</h1>
+                </div>
+
+                <div class="topbar-right">
+                    <!-- User Badge -->
+                    <div class="topbar-user-badge">
+                        <img src="assets/img/avatar-user.svg" alt="User avatar" class="topbar-user-avatar" onerror="this.src='assets/img/avatar-user.svg'">
+                        <div class="topbar-user-info">
+                            <span class="topbar-user-name">Traveler</span>
+                            <span class="topbar-user-role">Gold Explorer</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <div class="dashboard-content-area">
+                
+                <!-- ==========================================
+                     VIEW 1: MY TRAVEL HUB (OVERVIEW)
+                     ========================================== -->
+                <div id="view-overview" class="dashboard-view active">
+                    <!-- Welcome Banner -->
+                    <div class="dashboard-welcome-banner">
+                        <div class="welcome-info">
+                            <h2>Bon Voyage, <span class="user-name-display">Traveler</span>!</h2>
+                            <p>Your next trip to <strong>Swiss Alps Luxury Safari</strong> departs in 4 days.</p>
+                        </div>
+                        <div class="welcome-actions">
+                            <!-- Action buttons redirect to 404.html -->
+                            <button type="button" class="dash-btn dash-btn-gold">
+                                <i class="fa-solid fa-ticket"></i> Download Boarding Pass
+                            </button>
+                            <button type="button" class="dash-btn dash-btn-outline">
+                                <i class="fa-solid fa-compass"></i> Explore More Tours
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- 4 KPI Metrics -->
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-header">
+                                <span class="stat-title">Active Bookings</span>
+                                <div class="stat-icon gold"><i class="fa-solid fa-suitcase-rolling"></i></div>
+                            </div>
+                            <div class="stat-value">3 Tours</div>
+                            <div class="stat-footer">
+                                <span class="stat-change positive">Next: Nov 02, 2026</span>
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-header">
+                                <span class="stat-title">Travel Points</span>
+                                <div class="stat-icon green"><i class="fa-solid fa-medal"></i></div>
+                            </div>
+                            <div class="stat-value">4,850 pts</div>
+                            <div class="stat-footer">
+                                <span class="stat-change positive">Gold Member Status</span>
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-header">
+                                <span class="stat-title">Wishlist Destinations</span>
+                                <div class="stat-icon purple"><i class="fa-solid fa-heart"></i></div>
+                            </div>
+                            <div class="stat-value">6 Saved</div>
+                            <div class="stat-footer">
+                                <span class="stat-change neutral">Ready for booking</span>
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-header">
+                                <span class="stat-title">Countries Visited</span>
+                                <div class="stat-icon blue"><i class="fa-solid fa-earth-americas"></i></div>
+                            </div>
+                            <div class="stat-value">12</div>
+                            <div class="stat-footer">
+                                <span class="stat-change positive">+2 new this year</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2-Column Widgets Grid -->
+                    <div class="dashboard-grid-2col">
+                        <!-- Widget 1: My Booked Tours & Itinerary -->
+                        <div class="dashboard-card">
+                            <div class="card-header-bar">
+                                <h3 class="card-header-title">
+                                    <i class="fa-solid fa-map"></i> My Reserved Itineraries
+                                </h3>
+                                <button type="button" class="dash-btn dash-btn-outline dash-btn-sm">
+                                    <i class="fa-solid fa-plus"></i> Add Trip
+                                </button>
+                            </div>
+
+                            <div class="dash-table-responsive">
+                                <table class="dash-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Tour Package</th>
+                                            <th>Date</th>
+                                            <th>Guide</th>
+                                            <th>Status</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>Swiss Alps Luxury Safari</strong></td>
+                                            <td>Nov 02 - Nov 09</td>
+                                            <td>David S.</td>
+                                            <td><span class="status-badge status-confirmed">Confirmed</span></td>
+                                            <td><button type="button" class="dash-btn dash-btn-outline dash-btn-sm">Voucher</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Santorini Sunset Cruise</strong></td>
+                                            <td>Dec 14 - Dec 20</td>
+                                            <td>Capt. Nikos</td>
+                                            <td><span class="status-badge status-confirmed">Confirmed</span></td>
+                                            <td><button type="button" class="dash-btn dash-btn-outline dash-btn-sm">Voucher</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Kyoto Blossom Walking Tour</strong></td>
+                                            <td>Apr 05 - Apr 12</td>
+                                            <td>Aiko Tanaka</td>
+                                            <td><span class="status-badge status-pending">In Review</span></td>
+                                            <td><button type="button" class="dash-btn dash-btn-outline dash-btn-sm">Manage</button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Widget 2: Travel Checklist & Guide Contact -->
+                        <div class="dashboard-card">
+                            <div class="card-header-bar">
+                                <h3 class="card-header-title">
+                                    <i class="fa-solid fa-list-check"></i> Travel Checklist
+                                </h3>
+                                <button type="button" class="dash-btn dash-btn-outline dash-btn-sm">Refresh</button>
+                            </div>
+
+                            <ul class="activity-list">
+                                <li class="activity-item">
+                                    <div class="activity-icon" style="color:#51cf66; background: rgba(81,207,102,0.12);"><i class="fa-solid fa-passport"></i></div>
+                                    <div class="activity-details">
+                                        <div class="activity-text">Passport verified: Valid until 2029.</div>
+                                        <div class="activity-time">Verified</div>
+                                    </div>
+                                </li>
+                                <li class="activity-item">
+                                    <div class="activity-icon" style="color:#51cf66; background: rgba(81,207,102,0.12);"><i class="fa-solid fa-shield-heart"></i></div>
+                                    <div class="activity-details">
+                                        <div class="activity-text">Travel Insurance Active: Policy #TI-90412.</div>
+                                        <div class="activity-time">Coverage Active</div>
+                                    </div>
+                                </li>
+                                <li class="activity-item">
+                                    <div class="activity-icon" style="color:#AA8453; background: rgba(170,132,83,0.12);"><i class="fa-solid fa-utensils"></i></div>
+                                    <div class="activity-details">
+                                        <div class="activity-text">Dietary preferences updated: Halal & Vegetarian options.</div>
+                                        <div class="activity-time">Noted by Guide</div>
+                                    </div>
+                                </li>
+                            </ul>
+
+                            <div class="mt-4 pt-3 border-top border-secondary border-opacity-10">
+                                <button type="button" class="dash-btn dash-btn-gold w-100 justify-content-center">
+                                    <i class="fa-solid fa-headset"></i> Contact My Private Concierge
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==========================================
+                     VIEW 2: MY TRIPS & BOOKINGS
+                     ========================================== -->
+                <div id="view-my-bookings" class="dashboard-view">
+                    <div class="view-header">
+                        <div>
+                            <h2 class="view-header-title"><i class="fa-solid fa-suitcase-rolling"></i> My Trips & Bookings</h2>
+                            <p class="view-header-desc">Manage your upcoming luxury departures, booking receipts, and travel companions.</p>
+                        </div>
+                        <button type="button" class="dash-btn dash-btn-gold">
+                            <i class="fa-solid fa-magnifying-glass"></i> Explore New Destination
+                        </button>
+                    </div>
+
+                    <div class="grid-3col">
+                        <div class="dash-card-item">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="dash-badge-pill dash-badge-gold">Nov 02 - Nov 09, 2026</span>
+                                <span class="status-badge status-confirmed">Confirmed</span>
+                            </div>
+                            <h4 class="text-white mb-2" style="font-size: 16px;">Swiss Alps Luxury Safari</h4>
+                            <div style="font-size: 13px; color: var(--dash-muted); margin-bottom: 12px;">
+                                <div><strong>Ref Code:</strong> #RT-9041 • 2 Travelers</div>
+                                <div><strong>Hotel:</strong> The Omnia Mountain Lodge, Zermatt</div>
+                                <div><strong>Lead Guide:</strong> David Sterling</div>
+                            </div>
+                            <div class="d-flex gap-2 pt-2 border-top border-secondary border-opacity-10">
+                                <button type="button" class="dash-btn dash-btn-gold dash-btn-sm flex-fill justify-content-center">View Boarding Pass</button>
+                                <button type="button" class="dash-btn dash-btn-outline dash-btn-sm">Modify</button>
+                            </div>
+                        </div>
+
+                        <div class="dash-card-item">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="dash-badge-pill dash-badge-blue">Dec 14 - Dec 20, 2026</span>
+                                <span class="status-badge status-confirmed">Confirmed</span>
+                            </div>
+                            <h4 class="text-white mb-2" style="font-size: 16px;">Santorini Sunset Yacht Cruise</h4>
+                            <div style="font-size: 13px; color: var(--dash-muted); margin-bottom: 12px;">
+                                <div><strong>Ref Code:</strong> #RT-8840 • 2 Travelers</div>
+                                <div><strong>Marina:</strong> Ammoudi Bay, Oia</div>
+                                <div><strong>Captain:</strong> Capt. Nikos</div>
+                            </div>
+                            <div class="d-flex gap-2 pt-2 border-top border-secondary border-opacity-10">
+                                <button type="button" class="dash-btn dash-btn-gold dash-btn-sm flex-fill justify-content-center">View Boarding Pass</button>
+                                <button type="button" class="dash-btn dash-btn-outline dash-btn-sm">Modify</button>
+                            </div>
+                        </div>
+
+                        <div class="dash-card-item">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="dash-badge-pill dash-badge-purple">Apr 05 - Apr 12, 2027</span>
+                                <span class="status-badge status-pending">In Review</span>
+                            </div>
+                            <h4 class="text-white mb-2" style="font-size: 16px;">Kyoto Cherry Blossom Circuit</h4>
+                            <div style="font-size: 13px; color: var(--dash-muted); margin-bottom: 12px;">
+                                <div><strong>Ref Code:</strong> #RT-7910 • 1 Traveler</div>
+                                <div><strong>Stay:</strong> Hoshinoya Kyoto Ryokan</div>
+                                <div><strong>Lead Guide:</strong> Aiko Tanaka</div>
+                            </div>
+                            <div class="d-flex gap-2 pt-2 border-top border-secondary border-opacity-10">
+                                <button type="button" class="dash-btn dash-btn-outline dash-btn-sm flex-fill justify-content-center">Review Itinerary</button>
+                                <button type="button" class="dash-btn dash-btn-outline dash-btn-sm">Support</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==========================================
+                     VIEW 3: DIGITAL BOARDING PASSES
+                     ========================================== -->
+                <div id="view-tickets" class="dashboard-view">
+                    <div class="view-header">
+                        <div>
+                            <h2 class="view-header-title"><i class="fa-solid fa-ticket"></i> Digital Boarding Passes & Tickets</h2>
+                            <p class="view-header-desc">Instant mobile boarding passes with verified QR code check-in.</p>
+                        </div>
+                        <button type="button" class="dash-btn dash-btn-gold">
+                            <i class="fa-solid fa-wallet"></i> Save to Apple Wallet
+                        </button>
+                    </div>
+
+                    <div class="dashboard-grid-2col">
+                        <div class="dashboard-card" style="border: 1.5px solid var(--dash-gold); background: linear-gradient(135deg, rgba(170,132,83,0.12), rgba(20,22,28,0.95));">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="dash-badge-pill dash-badge-gold">VIP First Class</span>
+                                <span style="font-size: 12px; color: var(--dash-gold);"><i class="fa-solid fa-star"></i> RESTIN LUXURY PASS</span>
+                            </div>
+                            <h3 class="text-white mb-1" style="font-size: 18px;">Swiss Alps Glacier Express</h3>
+                            <p style="font-size: 12px; color: var(--dash-muted); margin-bottom: 14px;">ZURICH (ZRH) &rarr; ZERMATT (ZMT)</p>
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <div>
+                                    <div style="font-size: 11px; color: var(--dash-muted);">PASSENGER</div>
+                                    <strong class="text-white">Saravanan Kumar</strong>
+                                </div>
+                                <div>
+                                    <div style="font-size: 11px; color: var(--dash-muted);">DEPARTURE</div>
+                                    <strong class="text-white">Nov 02 • 08:30 AM</strong>
+                                </div>
+                                <div>
+                                    <div style="font-size: 11px; color: var(--dash-muted);">SEAT / COACH</div>
+                                    <strong class="text-white" style="color: var(--dash-gold) !important;">Car 1 • 12A</strong>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center pt-3 border-top border-secondary border-opacity-25">
+                                <div class="qr-code-placeholder">
+                                    <i class="fa-solid fa-qrcode text-dark" style="font-size: 64px;"></i>
+                                </div>
+                                <div class="d-flex flex-column gap-2">
+                                    <button type="button" class="dash-btn dash-btn-gold dash-btn-sm"><i class="fa-solid fa-download"></i> Download PDF Pass</button>
+                                    <button type="button" class="dash-btn dash-btn-outline dash-btn-sm"><i class="fa-solid fa-share-nodes"></i> Send via SMS</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dashboard-card" style="border: 1px solid var(--dash-border-subtle);">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="dash-badge-pill dash-badge-blue">Catamaran Private Deck</span>
+                                <span style="font-size: 12px; color: #38bdf8;"><i class="fa-solid fa-ship"></i> MARINE VOUCHER</span>
+                            </div>
+                            <h3 class="text-white mb-1" style="font-size: 18px;">Santorini Caldera Sunset Cruise</h3>
+                            <p style="font-size: 12px; color: var(--dash-muted); margin-bottom: 14px;">OIA PORT &rarr; VOLCANIC HOT SPRINGS</p>
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <div>
+                                    <div style="font-size: 11px; color: var(--dash-muted);">PASSENGER</div>
+                                    <strong class="text-white">Saravanan Kumar</strong>
+                                </div>
+                                <div>
+                                    <div style="font-size: 11px; color: var(--dash-muted);">DEPARTURE</div>
+                                    <strong class="text-white">Dec 14 • 15:30 PM</strong>
+                                </div>
+                                <div>
+                                    <div style="font-size: 11px; color: var(--dash-muted);">DOCK PIER</div>
+                                    <strong class="text-white">Gate B • Berth 04</strong>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center pt-3 border-top border-secondary border-opacity-25">
+                                <div class="qr-code-placeholder">
+                                    <i class="fa-solid fa-qrcode text-dark" style="font-size: 64px;"></i>
+                                </div>
+                                <div class="d-flex flex-column gap-2">
+                                    <button type="button" class="dash-btn dash-btn-gold dash-btn-sm"><i class="fa-solid fa-download"></i> Download PDF Pass</button>
+                                    <button type="button" class="dash-btn dash-btn-outline dash-btn-sm"><i class="fa-solid fa-share-nodes"></i> Send via SMS</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==========================================
+                     VIEW 4: TRIP ITINERARIES
+                     ========================================== -->
+                <div id="view-itinerary" class="dashboard-view">
+                    <div class="view-header">
+                        <div>
+                            <h2 class="view-header-title"><i class="fa-solid fa-map-location-dot"></i> Day-by-Day Tour Itinerary</h2>
+                            <p class="view-header-desc">Detailed program for your upcoming Swiss Alps Luxury Safari (7 Days, 6 Nights).</p>
+                        </div>
+                        <button type="button" class="dash-btn dash-btn-gold">
+                            <i class="fa-solid fa-file-pdf"></i> Download Complete Itinerary Book
+                        </button>
+                    </div>
+
+                    <div class="dashboard-card">
+                        <div class="mb-4 pb-3 border-bottom border-secondary border-opacity-10">
+                            <span class="dash-badge-pill dash-badge-gold mb-2">DAY 1: ARRIVAL IN ZURICH & ALPINE RAIL TRANSFER</span>
+                            <h4 class="text-white mt-1" style="font-size: 16px;">Private VIP Airport Greeting & Panoramic Scenic Transfer</h4>
+                            <p style="font-size: 13px; color: var(--dash-muted);">
+                                Personal chauffeur greeting at Zurich International Airport (ZRH). Boarding the first-class Glacier Express rail car directly to Zermatt with champagne and chocolate service on board. Check-in at The Omnia 5-Star Mountain Lodge.
+                            </p>
+                        </div>
+
+                        <div class="mb-4 pb-3 border-bottom border-secondary border-opacity-10">
+                            <span class="dash-badge-pill dash-badge-blue mb-2">DAY 2: MATTERHORN GLACIER PARADISE & HELI-FLIGHT</span>
+                            <h4 class="text-white mt-1" style="font-size: 16px;">High Altitude Scenic Glacier Landing & Gourmet Lunch</h4>
+                            <p style="font-size: 13px; color: var(--dash-muted);">
+                                Private Air Zermatt helicopter scenic flight around the Matterhorn peak. Glacier snowshoe exploration with senior mountain guide David Sterling followed by a 4-course alpine lunch at 3,883m.
+                            </p>
+                        </div>
+
+                        <div>
+                            <span class="dash-badge-pill dash-badge-purple mb-2">DAY 3: ALPINE CHEESE, WINE TASTING & SPA RETREAT</span>
+                            <h4 class="text-white mt-1" style="font-size: 16px;">Valais Vineyard Tour & Private Thermal Spa Experience</h4>
+                            <p style="font-size: 13px; color: var(--dash-muted);">
+                                Private cellar tasting of rare Swiss alpine wines, artisan fondue masterclass, and evening relaxation at the hotel's outdoor heated thermal pool overlooking the snowy valleys.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==========================================
+                     VIEW 5: SAVED WISHLIST
+                     ========================================== -->
+                <div id="view-wishlist" class="dashboard-view">
+                    <div class="view-header">
+                        <div>
+                            <h2 class="view-header-title"><i class="fa-solid fa-heart"></i> Saved Dream Wishlist</h2>
+                            <p class="view-header-desc">6 bucket-list destinations saved for future booking with price drop alerts active.</p>
+                        </div>
+                        <button type="button" class="dash-btn dash-btn-gold">
+                            <i class="fa-solid fa-compass"></i> Discover More Destinations
+                        </button>
+                    </div>
+
+                    <div class="grid-3col">
+                        <div class="dash-card-item">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="dash-badge-pill dash-badge-gold">Maldives • 5 Days</span>
+                                <span style="font-size: 12px; color: var(--dash-gold);"><i class="fa-solid fa-bell"></i> Alert Active</span>
+                            </div>
+                            <h4 class="text-white mb-2" style="font-size: 16px;">Maldives Overwater Coral Villa</h4>
+                            <p style="font-size: 13px; color: var(--dash-muted); margin-bottom: 12px;">Seaplane transfer, private infinity pool, and sunset dolphin cruise.</p>
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span style="font-size: 17px; font-weight: 700; color: #fff;">$3,800</span>
+                                <span style="font-size: 12px; color: #4ade80;"><i class="fa-solid fa-tag"></i> 10% Off Early Bird</span>
+                            </div>
+                            <div class="d-flex gap-2 pt-2 border-top border-secondary border-opacity-10">
+                                <button type="button" class="dash-btn dash-btn-gold dash-btn-sm flex-fill justify-content-center">Book Now</button>
+                                <button type="button" class="dash-btn dash-btn-outline dash-btn-sm text-danger"><i class="fa-solid fa-trash"></i></button>
+                            </div>
+                        </div>
+
+                        <div class="dash-card-item">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="dash-badge-pill dash-badge-blue">Iceland • 7 Days</span>
+                                <span style="font-size: 12px; color: var(--dash-gold);"><i class="fa-solid fa-bell"></i> Alert Active</span>
+                            </div>
+                            <h4 class="text-white mb-2" style="font-size: 16px;">Iceland Aurora & Blue Lagoon</h4>
+                            <p style="font-size: 13px; color: var(--dash-muted); margin-bottom: 12px;">Northern lights superjeep chase, ice cave hiking, and luxury geothermal suites.</p>
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span style="font-size: 17px; font-weight: 700; color: #fff;">$3,200</span>
+                                <span style="font-size: 12px; color: var(--dash-muted);">Winter Expedition</span>
+                            </div>
+                            <div class="d-flex gap-2 pt-2 border-top border-secondary border-opacity-10">
+                                <button type="button" class="dash-btn dash-btn-gold dash-btn-sm flex-fill justify-content-center">Book Now</button>
+                                <button type="button" class="dash-btn dash-btn-outline dash-btn-sm text-danger"><i class="fa-solid fa-trash"></i></button>
+                            </div>
+                        </div>
+
+                        <div class="dash-card-item">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="dash-badge-pill dash-badge-purple">Dubai • 4 Days</span>
+                                <span style="font-size: 12px; color: var(--dash-gold);"><i class="fa-solid fa-bell"></i> Alert Active</span>
+                            </div>
+                            <h4 class="text-white mb-2" style="font-size: 16px;">Dubai Royal Desert & Skyline</h4>
+                            <p style="font-size: 13px; color: var(--dash-muted); margin-bottom: 12px;">Burj Al Arab dining, private desert dune glamping, and yacht marina charter.</p>
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span style="font-size: 17px; font-weight: 700; color: #fff;">$1,650</span>
+                                <span style="font-size: 12px; color: var(--dash-muted);">Luxury Weekend</span>
+                            </div>
+                            <div class="d-flex gap-2 pt-2 border-top border-secondary border-opacity-10">
+                                <button type="button" class="dash-btn dash-btn-gold dash-btn-sm flex-fill justify-content-center">Book Now</button>
+                                <button type="button" class="dash-btn dash-btn-outline dash-btn-sm text-danger"><i class="fa-solid fa-trash"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==========================================
+                     VIEW 6: LOYALTY & REWARDS
+                     ========================================== -->
+                <div id="view-rewards" class="dashboard-view">
+                    <div class="view-header">
+                        <div>
+                            <h2 class="view-header-title"><i class="fa-solid fa-medal"></i> Loyalty Club & Rewards</h2>
+                            <p class="view-header-desc">Exclusive benefits, member perks, and point redemption store.</p>
+                        </div>
+                        <button type="button" class="dash-btn dash-btn-gold">
+                            <i class="fa-solid fa-gift"></i> Redeem Points
+                        </button>
+                    </div>
+
+                    <div class="dashboard-grid-2col">
+                        <div class="dashboard-card">
+                            <div class="d-flex align-items-center gap-3 mb-3">
+                                <div class="topbar-user-avatar" style="width: 52px; height: 52px; font-size: 24px; color: #dfaa67;">
+                                    <i class="fa-solid fa-crown"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-white m-0" style="font-size: 18px;">Gold Explorer Tier</h3>
+                                    <span style="font-size: 12px; color: #dfaa67;">Active Member since 2024 • ID: #RT-LOYAL-4921</span>
+                                </div>
+                            </div>
+                            <div class="p-3 mb-3" style="background: rgba(255,255,255,0.03); border-radius: 8px; border: 1px solid var(--dash-border-subtle);">
+                                <div class="d-flex justify-content-between mb-1">
+                                    <span style="font-size: 13px; color: var(--dash-muted);">Current Points Balance:</span>
+                                    <strong class="text-white" style="font-size: 16px;">4,850 Pts</strong>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <span style="font-size: 12px; color: var(--dash-muted);">Points needed for Platinum Elite:</span>
+                                    <span style="font-size: 12px; color: var(--dash-gold);">150 Pts remaining</span>
+                                </div>
+                            </div>
+                            <h4 class="text-white mb-2" style="font-size: 14px;">Your Gold Tier Perks:</h4>
+                            <ul style="font-size: 13px; color: var(--dash-muted); padding-left: 20px;">
+                                <li>Complimentary 5-Star Room Upgrades upon availability</li>
+                                <li>Complimentary Luxury Airport Transfers</li>
+                                <li>24/7 Dedicated Concierge WhatsApp line</li>
+                                <li>15% Discount on all Excursion Partner bookings</li>
+                            </ul>
+                        </div>
+
+                        <div class="dashboard-card">
+                            <h3 class="card-header-title mb-3"><i class="fa-solid fa-gift text-warning me-2"></i> Available Vouchers to Claim</h3>
+                            <div class="mb-3 p-3" style="background: rgba(255,255,255,0.03); border-radius: 8px; border: 1px solid var(--dash-border-subtle);">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <h5 class="text-white m-0" style="font-size: 14px;">$250 Luxury Spa Credit</h5>
+                                        <span style="font-size: 12px; color: var(--dash-muted);">Redeem for 2,000 points</span>
+                                    </div>
+                                    <button type="button" class="dash-btn dash-btn-gold dash-btn-sm">Claim Voucher</button>
+                                </div>
+                            </div>
+                            <div class="p-3" style="background: rgba(255,255,255,0.03); border-radius: 8px; border: 1px solid var(--dash-border-subtle);">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <h5 class="text-white m-0" style="font-size: 14px;">Scenic Helicopter Flight Upgrade</h5>
+                                        <span style="font-size: 12px; color: var(--dash-muted);">Redeem for 3,500 points</span>
+                                    </div>
+                                    <button type="button" class="dash-btn dash-btn-gold dash-btn-sm">Claim Voucher</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==========================================
+                     VIEW 7: PAYMENT RECEIPTS
+                     ========================================== -->
+                <div id="view-invoices" class="dashboard-view">
+                    <div class="view-header">
+                        <div>
+                            <h2 class="view-header-title"><i class="fa-solid fa-file-invoice-dollar"></i> Payment Receipts & Invoices</h2>
+                            <p class="view-header-desc">Download official tax invoices and receipts for all your tour transactions.</p>
+                        </div>
+                        <button type="button" class="dash-btn dash-btn-gold">
+                            <i class="fa-solid fa-credit-card"></i> Manage Payment Cards
+                        </button>
+                    </div>
+
+                    <div class="dashboard-card">
+                        <div class="dash-table-responsive">
+                            <table class="dash-table">
+                                <thead>
+                                    <tr>
+                                        <th>Invoice #</th>
+                                        <th>Tour Booking</th>
+                                        <th>Date Paid</th>
+                                        <th>Payment Method</th>
+                                        <th>Total Paid</th>
+                                        <th>Status</th>
+                                        <th>Receipt</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>#INV-90412</strong></td>
+                                        <td>Swiss Alps Luxury Safari</td>
+                                        <td>Oct 24, 2026</td>
+                                        <td>Visa Card (•••• 4242)</td>
+                                        <td>$2,450.00</td>
+                                        <td><span class="status-badge status-confirmed">Paid in Full</span></td>
+                                        <td><button type="button" class="dash-btn dash-btn-outline dash-btn-sm"><i class="fa-solid fa-download"></i> PDF</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>#INV-88401</strong></td>
+                                        <td>Santorini Sunset Yacht Cruise</td>
+                                        <td>Oct 18, 2026</td>
+                                        <td>Apple Pay</td>
+                                        <td>$1,850.00</td>
+                                        <td><span class="status-badge status-confirmed">Paid in Full</span></td>
+                                        <td><button type="button" class="dash-btn dash-btn-outline dash-btn-sm"><i class="fa-solid fa-download"></i> PDF</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>#INV-79102</strong></td>
+                                        <td>Kyoto Blossom Walking Tour (Deposit)</td>
+                                        <td>Oct 10, 2026</td>
+                                        <td>Stripe Checkout</td>
+                                        <td>$500.00</td>
+                                        <td><span class="status-badge status-confirmed">Deposit Paid</span></td>
+                                        <td><button type="button" class="dash-btn dash-btn-outline dash-btn-sm"><i class="fa-solid fa-download"></i> PDF</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==========================================
+                     VIEW 8: MEMORIES & REVIEWS
+                     ========================================== -->
+                <div id="view-memories" class="dashboard-view">
+                    <div class="view-header">
+                        <div>
+                            <h2 class="view-header-title"><i class="fa-solid fa-camera-retro"></i> Trip Memories & Guide Ratings</h2>
+                            <p class="view-header-desc">Share your travel photographs and review your tour guides.</p>
+                        </div>
+                        <button type="button" class="dash-btn dash-btn-gold">
+                            <i class="fa-solid fa-cloud-arrow-up"></i> Upload Vacation Photos
+                        </button>
+                    </div>
+
+                    <div class="grid-3col">
+                        <div class="dash-card-item">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="dash-badge-pill dash-badge-gold">Alps Excursion</span>
+                                <span style="color: #dfaa67;"><i class="fa-solid fa-star"></i> 5.0 Rating</span>
+                            </div>
+                            <h4 class="text-white mb-2" style="font-size: 15px;">Lead Guide: David Sterling</h4>
+                            <p style="font-size: 13px; color: var(--dash-muted); margin-bottom: 12px;">"David made our glacier walk unforgettable. Patient, knowledgeable, and safety conscious!"</p>
+                            <div class="d-flex justify-content-between align-items-center pt-2 border-top border-secondary border-opacity-10">
+                                <span style="font-size: 12px; color: var(--dash-muted);">Reviewed Oct 2026</span>
+                                <button type="button" class="dash-btn dash-btn-outline dash-btn-sm">Edit Review</button>
+                            </div>
+                        </div>
+
+                        <div class="dash-card-item">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="dash-badge-pill dash-badge-blue">Santorini Excursion</span>
+                                <span style="color: #dfaa67;"><i class="fa-solid fa-star"></i> 5.0 Rating</span>
+                            </div>
+                            <h4 class="text-white mb-2" style="font-size: 15px;">Captain: Nikos Georgiou</h4>
+                            <p style="font-size: 13px; color: var(--dash-muted); margin-bottom: 12px;">"Sunset over the caldera was breathtaking. Outstanding Greek wine pairings aboard!"</p>
+                            <div class="d-flex justify-content-between align-items-center pt-2 border-top border-secondary border-opacity-10">
+                                <span style="font-size: 12px; color: var(--dash-muted);">Reviewed Sept 2026</span>
+                                <button type="button" class="dash-btn dash-btn-outline dash-btn-sm">Edit Review</button>
+                            </div>
+                        </div>
+
+                        <div class="dash-card-item">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="dash-badge-pill dash-badge-purple">Photo Gallery</span>
+                                <span class="status-badge status-confirmed">24 Photos</span>
+                            </div>
+                            <h4 class="text-white mb-2" style="font-size: 15px;">Matterhorn Sunset Album</h4>
+                            <p style="font-size: 13px; color: var(--dash-muted); margin-bottom: 12px;">High-resolution cloud album shared with your travel companions.</p>
+                            <div class="d-flex justify-content-between align-items-center pt-2 border-top border-secondary border-opacity-10">
+                                <span style="font-size: 12px; color: #4ade80;">Cloud Synced</span>
+                                <button type="button" class="dash-btn dash-btn-outline dash-btn-sm">View Album</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==========================================
+                     VIEW 9: VISA & DOCUMENTS
+                     ========================================== -->
+                <div id="view-documents" class="dashboard-view">
+                    <div class="view-header">
+                        <div>
+                            <h2 class="view-header-title"><i class="fa-solid fa-passport"></i> Travel Documents & Visa Clearance</h2>
+                            <p class="view-header-desc">All essential international travel certificates, passports, and entry permits.</p>
+                        </div>
+                        <button type="button" class="dash-btn dash-btn-gold">
+                            <i class="fa-solid fa-file-arrow-up"></i> Upload Document
+                        </button>
+                    </div>
+
+                    <div class="dashboard-card">
+                        <div class="dash-table-responsive">
+                            <table class="dash-table">
+                                <thead>
+                                    <tr>
+                                        <th>Document Type</th>
+                                        <th>Reference #</th>
+                                        <th>Issuing Country</th>
+                                        <th>Expiry Date</th>
+                                        <th>Verification Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>International Passport</strong></td>
+                                        <td>P9402184</td>
+                                        <td>India / Global</td>
+                                        <td>Nov 2029 (Valid)</td>
+                                        <td><span class="status-badge status-confirmed">Verified by Concierge</span></td>
+                                        <td><button type="button" class="dash-btn dash-btn-outline dash-btn-sm">View Scan</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Schengen Multiple-Entry Visa</strong></td>
+                                        <td>SCH-2026-904</td>
+                                        <td>Switzerland / EU</td>
+                                        <td>Dec 2027 (Active)</td>
+                                        <td><span class="status-badge status-confirmed">Approved & Valid</span></td>
+                                        <td><button type="button" class="dash-btn dash-btn-outline dash-btn-sm">View Scan</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Global Comprehensive Travel Insurance</strong></td>
+                                        <td>TI-ALLIANZ-9041</td>
+                                        <td>Worldwide Coverage</td>
+                                        <td>Annual Multi-Trip</td>
+                                        <td><span class="status-badge status-confirmed">Active Coverage</span></td>
+                                        <td><button type="button" class="dash-btn dash-btn-outline dash-btn-sm">Policy PDF</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==========================================
+                     VIEW 10: TRAVELER PREFERENCES
+                     ========================================== -->
+                <div id="view-profile" class="dashboard-view">
+                    <div class="view-header">
+                        <div>
+                            <h2 class="view-header-title"><i class="fa-solid fa-user-gear"></i> Traveler Preferences & VIP Profile</h2>
+                            <p class="view-header-desc">Custom seating, dietary accommodations, and personal concierge notes.</p>
+                        </div>
+                        <button type="button" class="dash-btn dash-btn-gold">
+                            <i class="fa-solid fa-floppy-disk"></i> Save Preferences
+                        </button>
+                    </div>
+
+                    <div class="dashboard-card">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="text-white mb-2" style="font-size: 13px;">Dietary Accommodation</label>
+                                <select class="dash-search-box w-100" style="background: rgba(255,255,255,0.05); color: #fff; padding: 10px; border-radius: 8px;">
+                                    <option value="vegetarian" selected style="background: #14161c;">Vegetarian / Jain Preferred</option>
+                                    <option value="halal" style="background: #14161c;">Halal Certified</option>
+                                    <option value="gluten-free" style="background: #14161c;">Gluten-Free Chef Menu</option>
+                                    <option value="no-restriction" style="background: #14161c;">No Dietary Restrictions</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="text-white mb-2" style="font-size: 13px;">Seating & Cabin Preference</label>
+                                <select class="dash-search-box w-100" style="background: rgba(255,255,255,0.05); color: #fff; padding: 10px; border-radius: 8px;">
+                                    <option value="window" selected style="background: #14161c;">Window Seat (Panoramic View)</option>
+                                    <option value="aisle" style="background: #14161c;">Aisle Seat (Easy Access)</option>
+                                    <option value="front-cabin" style="background: #14161c;">Front VIP Cabin</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="text-white mb-2" style="font-size: 13px;">Emergency Contact Name & Relation</label>
+                                <input type="text" class="dash-search-box w-100" value="S. Kumar (Family Member)" style="padding: 10px; border-radius: 8px;">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="text-white mb-2" style="font-size: 13px;">Emergency Phone Number</label>
+                                <input type="text" class="dash-search-box w-100" value="+91 98402 12345" style="padding: 10px; border-radius: 8px;">
+                            </div>
+                        </div>
+
+                        <div class="mt-4 pt-3 border-top border-secondary border-opacity-10 d-flex justify-content-end">
+                            <button type="button" class="dash-btn dash-btn-gold">
+                                <i class="fa-solid fa-check"></i> Update VIP Concierge Profile
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+
+    </div>
+
+    <!-- Core Scripts -->
+    <script src="assets/js/jquery-3.7.1.min.js"></script>
+    <script src="assets/js/auth.js"></script>
+    <script src="assets/js/dashboard.js"></script>
+</body>
+</html>

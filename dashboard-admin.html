@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Gramentheme">
+    <title>Administrator Dashboard | Restin Luxury Tours</title>
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="assets/img/favicon.svg">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <!-- FontAwesome CSS -->
+    <link rel="stylesheet" href="assets/css/all.min.css">
+    <!-- Main Template CSS -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <!-- Dashboard CSS -->
+    <link rel="stylesheet" href="assets/css/dashboard.css">
+</head>
+<body class="dashboard-body">
+
+    <!-- Mobile Drawer Overlay -->
+    <div class="dashboard-mobile-overlay"></div>
+
+    <div class="dashboard-wrapper">
+        
+        <!-- ==============================================================
+             SIDEBAR (EXACTLY 10 NAVIGATION ITEMS AS REQUIRED)
+             ============================================================== -->
+        <aside class="dashboard-sidebar">
+            
+            <!-- Sidebar Header & Logo -->
+            <div class="sidebar-header">
+                <a href="#overview" class="sidebar-logo" title="Dashboard Overview">
+                    <img src="assets/img/logo/stackly-white.webp" alt="Restin Tours Logo">
+                </a>
+                <button type="button" class="sidebar-close-btn" aria-label="Close sidebar">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Role Indicator Badge -->
+            <div class="sidebar-role-indicator">
+                <div class="role-badge-icon">
+                    <i class="fa-solid fa-crown"></i>
+                </div>
+                <div class="role-badge-info">
+                    <h6 class="user-name-display">Administrator</h6>
+                    <span>Admin Control</span>
+                </div>
+            </div>
+
+            <!-- 10 Navigation Items -->
+            <div class="sidebar-nav-container">
+                <div class="sidebar-nav-label">Main Menu</div>
+                <ul class="sidebar-menu">
+                    
+                    <!-- Item 1: Overview -->
+                    <li class="sidebar-menu-item active">
+                        <a href="#overview" class="sidebar-menu-link">
+                            <i class="item-icon fa-solid fa-gauge-high"></i>
+                            <span>1. Dashboard Overview</span>
+                            <span class="item-count">Live</span>
+                        </a>
+                    </li>
+
+                    <!-- Item 2: Tour Packages -->
+                    <li class="sidebar-menu-item">
+                        <a href="#packages" class="sidebar-menu-link">
+                            <i class="item-icon fa-solid fa-plane-up"></i>
+                            <span>2. Tour Packages</span>
+                            <span class="item-count">48</span>
+                        </a>
+                    </li>
+
+                    <!-- Item 3: Bookings & Reservations -->
+                    <li class="sidebar-menu-item">
+                        <a href="#bookings" class="sidebar-menu-link">
+                            <i class="item-icon fa-regular fa-calendar-check"></i>
+                            <span>3. Bookings & Res</span>
+                            <span class="item-count">142</span>
+                        </a>
+                    </li>
+
+                    <!-- Item 4: Destination Explorer -->
+                    <li class="sidebar-menu-item">
+                        <a href="#destinations" class="sidebar-menu-link">
+                            <i class="item-icon fa-solid fa-map-location-dot"></i>
+                            <span>4. Destinations</span>
+                            <span class="item-count">36</span>
+                        </a>
+                    </li>
+
+                    <!-- Item 5: Customer Management -->
+                    <li class="sidebar-menu-item">
+                        <a href="#customers" class="sidebar-menu-link">
+                            <i class="item-icon fa-solid fa-users"></i>
+                            <span>5. Customer Records</span>
+                            <span class="item-count">1.8k</span>
+                        </a>
+                    </li>
+
+                    <!-- Item 6: Tour Guides & Staff -->
+                    <li class="sidebar-menu-item">
+                        <a href="#guides" class="sidebar-menu-link">
+                            <i class="item-icon fa-solid fa-user-tie"></i>
+                            <span>6. Tour Guides & Staff</span>
+                            <span class="item-count">32</span>
+                        </a>
+                    </li>
+
+                    <!-- Item 7: Payments & Invoicing -->
+                    <li class="sidebar-menu-item">
+                        <a href="#payments" class="sidebar-menu-link">
+                            <i class="item-icon fa-solid fa-receipt"></i>
+                            <span>7. Payments & Invoices</span>
+                        </a>
+                    </li>
+
+                    <!-- Item 8: Reviews & Ratings -->
+                    <li class="sidebar-menu-item">
+                        <a href="#reviews" class="sidebar-menu-link">
+                            <i class="item-icon fa-regular fa-star"></i>
+                            <span>8. Reviews & Ratings</span>
+                            <span class="item-count">4.9★</span>
+                        </a>
+                    </li>
+
+                    <!-- Item 9: Reports & Analytics -->
+                    <li class="sidebar-menu-item">
+                        <a href="#analytics" class="sidebar-menu-link">
+                            <i class="item-icon fa-solid fa-chart-line"></i>
+                            <span>9. Analytics & Reports</span>
+                        </a>
+                    </li>
+
+                    <!-- Item 10: Settings & Security -->
+                    <li class="sidebar-menu-item">
+                        <a href="#settings" class="sidebar-menu-link">
+                            <i class="item-icon fa-solid fa-gear"></i>
+                            <span>10. System Settings</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+
+            <!-- Sidebar Footer -->
+            <div class="sidebar-footer">
+                <div class="sidebar-footer-links">
+                    <a href="index.html" class="sidebar-footer-link home-link">
+                        <i class="fa-solid fa-arrow-left"></i>
+                        <span>Return to Website</span>
+                    </a>
+                    <a href="#" onclick="RestinAuth.logout(event)" class="sidebar-footer-link logout-link">
+                        <i class="fa-solid fa-power-off"></i>
+                        <span>Sign Out Session</span>
+                    </a>
+                </div>
+            </div>
+
+        </aside>
+
+        <!-- ==============================================================
+             MAIN CONTENT
+             ============================================================== -->
+        <main class="dashboard-main">
+            
+            <!-- Topbar -->
+            <header class="dashboard-topbar">
+                <div class="topbar-left">
+                    <button type="button" class="mobile-hamburger-btn" aria-label="Toggle navigation">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                    <h1 class="dashboard-page-title">Administrator Portal</h1>
+                </div>
+
+                <div class="topbar-right">
+                    <!-- User Badge -->
+                    <div class="topbar-user-badge">
+                        <img src="assets/img/avatar-admin.svg" alt="User avatar" class="topbar-user-avatar" onerror="this.src='assets/img/avatar-admin.svg'">
+                        <div class="topbar-user-info">
+                            <span class="topbar-user-name">Administrator</span>
+                            <span class="topbar-user-role">Super Admin</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <div class="dashboard-content-area">
+                
+                <!-- ==========================================
+                     VIEW 1: DASHBOARD OVERVIEW
+                     ========================================== -->
+                <div id="view-overview" class="dashboard-view active">
+                    <!-- Welcome Banner -->
+                    <div class="dashboard-welcome-banner">
+                        <div class="welcome-info">
+                            <h2>Welcome Back, <span class="user-name-display">Administrator</span></h2>
+                            <p>Platform overview: All system services and tour packages are operating normally.</p>
+                        </div>
+                        <div class="welcome-actions">
+                            <!-- Action buttons redirect to 404.html -->
+                            <button type="button" class="dash-btn dash-btn-gold">
+                                <i class="fa-solid fa-plus"></i> Create Tour Package
+                            </button>
+                            <button type="button" class="dash-btn dash-btn-outline">
+                                <i class="fa-solid fa-file-arrow-down"></i> Export Audit (PDF)
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- 4 KPI Metrics -->
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-header">
+                                <span class="stat-title">Total Revenue</span>
+                                <div class="stat-icon gold"><i class="fa-solid fa-sack-dollar"></i></div>
+                            </div>
+                            <div class="stat-value">$184,520</div>
+                            <div class="stat-footer">
+                                <span class="stat-change positive"><i class="fa-solid fa-arrow-trend-up"></i> +14.2%</span>
+                                <span class="stat-change neutral">vs last month</span>
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-header">
+                                <span class="stat-title">Total Bookings</span>
+                                <div class="stat-icon green"><i class="fa-solid fa-calendar-check"></i></div>
+                            </div>
+                            <div class="stat-value">1,420</div>
+                            <div class="stat-footer">
+                                <span class="stat-change positive"><i class="fa-solid fa-arrow-trend-up"></i> +8.6%</span>
+                                <span class="stat-change neutral">confirmed trips</span>
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-header">
+                                <span class="stat-title">Active Packages</span>
+                                <div class="stat-icon blue"><i class="fa-solid fa-earth-americas"></i></div>
+                            </div>
+                            <div class="stat-value">48</div>
+                            <div class="stat-footer">
+                                <span class="stat-change neutral">Across 18 Countries</span>
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-header">
+                                <span class="stat-title">Tour Guides Active</span>
+                                <div class="stat-icon purple"><i class="fa-solid fa-user-astronaut"></i></div>
+                            </div>
+                            <div class="stat-value">32</div>
+                            <div class="stat-footer">
+                                <span class="stat-change positive">100% Certified</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2-Column Widgets Grid -->
+                    <div class="dashboard-grid-2col">
+                        <!-- Widget 1: Recent Tour Reservations Table -->
+                        <div class="dashboard-card">
+                            <div class="card-header-bar">
+                                <h3 class="card-header-title">
+                                    <i class="fa-solid fa-clock-rotate-left"></i> Recent Tour Reservations
+                                </h3>
+                                <button type="button" class="dash-btn dash-btn-outline dash-btn-sm">
+                                    <i class="fa-solid fa-filter"></i> Filter
+                                </button>
+                            </div>
+
+                            <div class="dash-table-responsive">
+                                <table class="dash-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Booking ID</th>
+                                            <th>Customer</th>
+                                            <th>Tour Package</th>
+                                            <th>Amount</th>
+                                            <th>Status</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>#RT-9041</strong></td>
+                                            <td>Alexandre Dumas</td>
+                                            <td>Swiss Alps Luxury Safari</td>
+                                            <td>$2,450</td>
+                                            <td><span class="status-badge status-confirmed">Confirmed</span></td>
+                                            <td><button type="button" class="dash-btn dash-btn-outline dash-btn-sm">Manage</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>#RT-9040</strong></td>
+                                            <td>Priya Sundaram</td>
+                                            <td>Maldives Coral Retreat</td>
+                                            <td>$3,800</td>
+                                            <td><span class="status-badge status-confirmed">Confirmed</span></td>
+                                            <td><button type="button" class="dash-btn dash-btn-outline dash-btn-sm">Manage</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>#RT-9039</strong></td>
+                                            <td>Marcus Vance</td>
+                                            <td>Kyoto Heritage Explorer</td>
+                                            <td>$1,920</td>
+                                            <td><span class="status-badge status-pending">Pending Review</span></td>
+                                            <td><button type="button" class="dash-btn dash-btn-outline dash-btn-sm">Manage</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>#RT-9038</strong></td>
+                                            <td>Elena Rostova</td>
+                                            <td>Amalfi Coast Yacht Tour</td>
+                                            <td>$4,100</td>
+                                            <td><span class="status-badge status-confirmed">Confirmed</span></td>
+                                            <td><button type="button" class="dash-btn dash-btn-outline dash-btn-sm">Manage</button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Widget 2: Live Activity Feed -->
+                        <div class="dashboard-card">
+                            <div class="card-header-bar">
+                                <h3 class="card-header-title">
+                                    <i class="fa-solid fa-bell"></i> Live Activity Feed
+                                </h3>
+                                <button type="button" class="dash-btn dash-btn-outline dash-btn-sm">Clear</button>
+                            </div>
+
+                            <ul class="activity-list">
+                                <li class="activity-item">
+                                    <div class="activity-icon"><i class="fa-solid fa-credit-card"></i></div>
+                                    <div class="activity-details">
+                                        <div class="activity-text">Payment received: <strong>$2,450</strong> for Swiss Alps Tour.</div>
+                                        <div class="activity-time">5 mins ago</div>
+                                    </div>
+                                </li>
+                                <li class="activity-item">
+                                    <div class="activity-icon"><i class="fa-solid fa-user-check"></i></div>
+                                    <div class="activity-details">
+                                        <div class="activity-text">Senior Guide David assigned to Iceland Expedition.</div>
+                                        <div class="activity-time">32 mins ago</div>
+                                    </div>
+                                </li>
+                                <li class="activity-item">
+                                    <div class="activity-icon"><i class="fa-solid fa-star"></i></div>
+                                    <div class="activity-details">
+                                        <div class="activity-text">New 5-star review submitted for Dubai Desert Safari.</div>
+                                        <div class="activity-time">2 hours ago</div>
+                                    </div>
+                                </li>
+                                <li class="activity-item">
+                                    <div class="activity-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                                    <div class="activity-details">
+                                        <div class="activity-text">Security backup completed successfully.</div>
+                                        <div class="activity-time">4 hours ago</div>
+                                    </div>
+                                </li>
+                            </ul>
+
+                            <div class="mt-4 pt-3 border-top border-secondary border-opacity-10">
+                                <button type="button" class="dash-btn dash-btn-gold w-100 justify-content-center">
+                                    <i class="fa-solid fa-sliders"></i> Global Platform Controls
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==========================================
+                     VIEW 2: TOUR PACKAGES
+                     ========================================== -->
+                <div id="view-packages" class="dashboard-view">
+                    <div class="view-header">
+                        <div>
+                            <h2 class="view-header-title"><i class="fa-solid fa-plane-up"></i> Tour Packages Management</h2>
+                            <p class="view-header-desc">Manage all 48 active luxury itineraries, pricing tiers, and inventory.</p>
+                        </div>
+                        <div class="d-flex gap-2">
+                            <button type="button" class="dash-btn dash-btn-gold">
+                                <i class="fa-solid fa-plus"></i> Add New Package
+                            </button>
+                            <button type="button" class="dash-btn dash-btn-outline">
+                                <i class="fa-solid fa-tags"></i> Bulk Price Update
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="dash-filter-bar">
+                        <div class="dash-search-box">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <input type="text" placeholder="Search tour packages by name, country...">
+                        </div>
+                        <div class="d-flex gap-2">
+                            <button type="button" class="dash-btn dash-btn-outline dash-btn-sm active">All (48)</button>
+                            <button type="button" class="dash-btn dash-btn-outline dash-btn-sm">Europe</button>
+                            <button type="button" class="dash-btn dash-btn-outline dash-btn-sm">Asia</button>
+                            <button type="button" class="dash-btn dash-btn-outline dash-btn-sm">Island Villas</button>
+                        </div>
+                    </div>
+
+                    <div class="grid-3col">
+                        <div class="dash-card-item">
+                            <div>
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <span class="dash-badge-pill dash-badge-gold">Europe • 7 Days</span>
+                                    <span class="status-badge status-confirmed">Active</span>
+                                </div>
+                                <h4 class="text-white mb-2" style="font-size: 16px;">Swiss Alps Luxury Safari</h4>
+                                <p style="font-size: 13px; color: var(--dash-muted); margin-bottom: 12px;">Glacier express, private 5-star mountain lodges, helicopter transfers.</p>
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <span style="font-size: 18px; font-weight: 700; color: #fff;">$2,450 <small style="font-size: 12px; color: var(--dash-muted);">/ person</small></span>
+                                    <span style="font-size: 12px; color: #dfaa67;"><i class="fa-solid fa-star"></i> 4.95 (182 reviews)</span>
+                                </div>
+                            </div>
+                            <div class="d-flex gap-2 border-top border-secondary border-opacity-10 pt-3">
+                                <button type="button" class="dash-btn dash-btn-outline dash-btn-sm flex-fill justify-content-center">Edit Itinerary</button>
+                                <button type="button" class="dash-btn dash-btn-gold dash-btn-sm">Bookings</button>
+                            </div>
+                        </div>
+
+                        <div class="dash-card-item">
+                            <div>
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <span class="dash-badge-pill dash-badge-blue">Maldives • 5 Days</span>
+                                    <span class="status-badge status-confirmed">Active</span>
+                                </div>
+                                <h4 class="text-white mb-2" style="font-size: 16px;">Maldives Coral Retreat</h4>
+                                <p style="font-size: 13px; color: var(--dash-muted); margin-bottom: 12px;">Overwater bungalow, private sea plane transfer, certified coral reef safari.</p>
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <span style="font-size: 18px; font-weight: 700; color: #fff;">$3,800 <small style="font-size: 12px; color: var(--dash-muted);">/ person</small></span>
+                                    <span style="font-size: 12px; color: #dfaa67;"><i class="fa-solid fa-star"></i> 5.0 (240 reviews)</span>
+                                </div>
+                            </div>
+                            <div class="d-flex gap-2 border-top border-secondary border-opacity-10 pt-3">
+                                <button type="button" class="dash-btn dash-btn-outline dash-btn-sm flex-fill justify-content-center">Edit Itinerary</button>
+                                <button type="button" class="dash-btn dash-btn-gold dash-btn-sm">Bookings</button>
+                            </div>
+                        </div>
+
+                        <div class="dash-card-item">
+                            <div>
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <span class="dash-badge-pill dash-badge-purple">Japan • 6 Days</span>
+                                    <span class="status-badge status-confirmed">Active</span>
+                                </div>
+                                <h4 class="text-white mb-2" style="font-size: 16px;">Kyoto Heritage Explorer</h4>
+                                <p style="font-size: 13px; color: var(--dash-muted); margin-bottom: 12px;">Ancient shrines, traditional tea ceremonies, Michelin dining & Shinkansen.</p>
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <span style="font-size: 18px; font-weight: 700; color: #fff;">$1,920 <small style="font-size: 12px; color: var(--dash-muted);">/ person</small></span>
+                                    <span style="font-size: 12px; color: #dfaa67;"><i class="fa-solid fa-star"></i> 4.90 (98 reviews)</span>
+                                </div>
+                            </div>
+                            <div class="d-flex gap-2 border-top border-secondary border-opacity-10 pt-3">
+                                <button type="button" class="dash-btn dash-btn-outline dash-btn-sm flex-fill justify-content-center">Edit Itinerary</button>
+                                <button type="button" class="dash-btn dash-btn-gold dash-btn-sm">Bookings</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==========================================
+                     VIEW 3: BOOKINGS & RESERVATIONS
+                     ========================================== -->
+                <div id="view-bookings" class="dashboard-view">
+                    <div class="view-header">
+                        <div>
+                            <h2 class="view-header-title"><i class="fa-regular fa-calendar-check"></i> Bookings & Reservations</h2>
+                            <p class="view-header-desc">Complete ledger of 1,420 tour reservations across all luxury travel routes.</p>
+                        </div>
+                        <button type="button" class="dash-btn dash-btn-gold">
+                            <i class="fa-solid fa-file-excel"></i> Export Bookings CSV
+                        </button>
+                    </div>
+
+                    <div class="dashboard-card">
+                        <div class="dash-filter-bar mb-3">
+                            <div class="dash-search-box">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                                <input type="text" placeholder="Filter by Booking ID, guest name, email...">
+                            </div>
+                            <div class="d-flex gap-2">
+                                <button type="button" class="dash-btn dash-btn-outline dash-btn-sm">All Statuses</button>
+                                <button type="button" class="dash-btn dash-btn-outline dash-btn-sm">Confirmed</button>
+                                <button type="button" class="dash-btn dash-btn-outline dash-btn-sm">Pending</button>
+                            </div>
+                        </div>
+
+                        <div class="dash-table-responsive">
+                            <table class="dash-table">
+                                <thead>
+                                    <tr>
+                                        <th>Ref Code</th>
+                                        <th>Guest Name</th>
+                                        <th>Tour Package</th>
+                                        <th>Departure</th>
+                                        <th>Guests</th>
+                                        <th>Amount</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><span class="dash-badge-pill dash-badge-gold">#RT-9041</span></td>
+                                        <td>Alexandre Dumas</td>
+                                        <td>Swiss Alps Luxury Safari</td>
+                                        <td>Nov 02, 2026</td>
+                                        <td>2 Adults</td>
+                                        <td>$2,450</td>
+                                        <td><span class="status-badge status-confirmed">Confirmed</span></td>
+                                        <td><button type="button" class="dash-btn dash-btn-outline dash-btn-sm">Manage</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="dash-badge-pill dash-badge-gold">#RT-9040</span></td>
+                                        <td>Priya Sundaram</td>
+                                        <td>Maldives Coral Retreat</td>
+                                        <td>Nov 05, 2026</td>
+                                        <td>2 Adults</td>
+                                        <td>$3,800</td>
+                                        <td><span class="status-badge status-confirmed">Confirmed</span></td>
+                                        <td><button type="button" class="dash-btn dash-btn-outline dash-btn-sm">Manage</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="dash-badge-pill dash-badge-gold">#RT-9039</span></td>
+                                        <td>Marcus Vance</td>
+                                        <td>Kyoto Heritage Explorer</td>
+                                        <td>Nov 08, 2026</td>
+                                        <td>1 Adult</td>
+                                        <td>$1,920</td>
+                                        <td><span class="status-badge status-pending">Pending Review</span></td>
+                                        <td><button type="button" class="dash-btn dash-btn-gold dash-btn-sm">Approve</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="dash-badge-pill dash-badge-gold">#RT-9038</span></td>
+                                        <td>Elena Rostova</td>
+                                        <td>Amalfi Coast Yacht Tour</td>
+                                        <td>Nov 12, 2026</td>
+                                        <td>4 Adults</td>
+                                        <td>$4,100</td>
+                                        <td><span class="status-badge status-confirmed">Confirmed</span></td>
+                                        <td><button type="button" class="dash-btn dash-btn-outline dash-btn-sm">Manage</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="dash-badge-pill dash-badge-gold">#RT-9037</span></td>
+                                        <td>David Chen</td>
+                                        <td>Dubai Desert Safari</td>
+                                        <td>Nov 15, 2026</td>
+                                        <td>2 Adults</td>
+                                        <td>$1,650</td>
+                                        <td><span class="status-badge status-confirmed">Confirmed</span></td>
+                                        <td><button type="button" class="dash-btn dash-btn-outline dash-btn-sm">Manage</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==========================================
+                     VIEW 4: DESTINATIONS
+                     ========================================== -->
+                <div id="view-destinations" class="dashboard-view">
+                    <div class="view-header">
+                        <div>
+                            <h2 class="view-header-title"><i class="fa-solid fa-map-location-dot"></i> Destinations & Global Hubs</h2>
+                            <p class="view-header-desc">36 curated luxury travel destinations across Europe, Asia, Americas, and Oceania.</p>
+                        </div>
+                        <button type="button" class="dash-btn dash-btn-gold">
+                            <i class="fa-solid fa-plus"></i> Add Destination
+                        </button>
+                    </div>
+
+                    <div class="grid-3col">
+                        <div class="dash-card-item">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="dash-badge-pill dash-badge-blue">Central Europe</span>
+                                <span class="status-badge status-confirmed">8 Tours</span>
+                            </div>
+                            <h4 class="text-white mb-2" style="font-size: 16px;">Switzerland & Alps</h4>
+                            <p style="font-size: 13px; color: var(--dash-muted);">Zermatt, Interlaken, St. Moritz & Lake Geneva alpine circuits.</p>
+                            <div class="d-flex justify-content-between pt-2 border-top border-secondary border-opacity-10">
+                                <span style="font-size: 12px; color: var(--dash-muted);"><i class="fa-solid fa-hotel me-1"></i> 14 Partner Lodges</span>
+                                <button type="button" class="dash-btn dash-btn-outline dash-btn-sm">Configure</button>
+                            </div>
+                        </div>
+
+                        <div class="dash-card-item">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="dash-badge-pill dash-badge-gold">Indian Ocean</span>
+                                <span class="status-badge status-confirmed">6 Tours</span>
+                            </div>
+                            <h4 class="text-white mb-2" style="font-size: 16px;">Maldives Atolls</h4>
+                            <p style="font-size: 13px; color: var(--dash-muted);">Private coral reefs, luxury catamaran routes & overwater retreats.</p>
+                            <div class="d-flex justify-content-between pt-2 border-top border-secondary border-opacity-10">
+                                <span style="font-size: 12px; color: var(--dash-muted);"><i class="fa-solid fa-ship me-1"></i> 8 Yacht Charters</span>
+                                <button type="button" class="dash-btn dash-btn-outline dash-btn-sm">Configure</button>
+                            </div>
+                        </div>
+
+                        <div class="dash-card-item">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="dash-badge-pill dash-badge-purple">East Asia</span>
+                                <span class="status-badge status-confirmed">7 Tours</span>
+                            </div>
+                            <h4 class="text-white mb-2" style="font-size: 16px;">Japan Cultural Route</h4>
+                            <p style="font-size: 13px; color: var(--dash-muted);">Kyoto geisha heritage, Tokyo modern luxury & Mt. Fuji onsen.</p>
+                            <div class="d-flex justify-content-between pt-2 border-top border-secondary border-opacity-10">
+                                <span style="font-size: 12px; color: var(--dash-muted);"><i class="fa-solid fa-torii-gate me-1"></i> 12 Cultural Sites</span>
+                                <button type="button" class="dash-btn dash-btn-outline dash-btn-sm">Configure</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==========================================
+                     VIEW 5: CUSTOMER RECORDS
+                     ========================================== -->
+                <div id="view-customers" class="dashboard-view">
+                    <div class="view-header">
+                        <div>
+                            <h2 class="view-header-title"><i class="fa-solid fa-users"></i> Customer Records & CRM</h2>
+                            <p class="view-header-desc">Manage 1,840 registered travelers, corporate VIP accounts, and travel histories.</p>
+                        </div>
+                        <button type="button" class="dash-btn dash-btn-gold">
+                            <i class="fa-solid fa-user-plus"></i> New Customer Record
+                        </button>
+                    </div>
+
+                    <div class="dashboard-card">
+                        <div class="dash-table-responsive">
+                            <table class="dash-table">
+                                <thead>
+                                    <tr>
+                                        <th>Traveler</th>
+                                        <th>Contact Email</th>
+                                        <th>Tier</th>
+                                        <th>Total Bookings</th>
+                                        <th>Lifetime Spend</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Alexandre Dumas</strong></td>
+                                        <td>alexandre.d@paris.fr</td>
+                                        <td><span class="dash-badge-pill dash-badge-gold">Gold Explorer</span></td>
+                                        <td>4 Completed</td>
+                                        <td>$9,800</td>
+                                        <td><span class="status-badge status-confirmed">Active</span></td>
+                                        <td><button type="button" class="dash-btn dash-btn-outline dash-btn-sm">View CRM</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Priya Sundaram</strong></td>
+                                        <td>priya.s@chennai.in</td>
+                                        <td><span class="dash-badge-pill dash-badge-purple">Platinum Elite</span></td>
+                                        <td>7 Completed</td>
+                                        <td>$18,400</td>
+                                        <td><span class="status-badge status-confirmed">Active</span></td>
+                                        <td><button type="button" class="dash-btn dash-btn-outline dash-btn-sm">View CRM</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Elena Rostova</strong></td>
+                                        <td>elena.r@milan.it</td>
+                                        <td><span class="dash-badge-pill dash-badge-purple">Platinum Elite</span></td>
+                                        <td>9 Completed</td>
+                                        <td>$28,900</td>
+                                        <td><span class="status-badge status-confirmed">Active</span></td>
+                                        <td><button type="button" class="dash-btn dash-btn-outline dash-btn-sm">View CRM</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==========================================
+                     VIEW 6: TOUR GUIDES & STAFF
+                     ========================================== -->
+                <div id="view-guides" class="dashboard-view">
+                    <div class="view-header">
+                        <div>
+                            <h2 class="view-header-title"><i class="fa-solid fa-user-tie"></i> Tour Guides & Field Staff</h2>
+                            <p class="view-header-desc">32 certified multilingual guides with global excursion certifications.</p>
+                        </div>
+                        <button type="button" class="dash-btn dash-btn-gold">
+                            <i class="fa-solid fa-id-card"></i> Certify New Guide
+                        </button>
+                    </div>
+
+                    <div class="grid-3col">
+                        <div class="dash-card-item">
+                            <div class="d-flex align-items-center gap-3 mb-3">
+                                <div class="topbar-user-avatar" style="width: 48px; height: 48px; font-size: 20px;">
+                                    <i class="fa-solid fa-user-astronaut"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-white m-0" style="font-size: 15px;">David Sterling</h4>
+                                    <span style="font-size: 12px; color: #dfaa67;">Senior Alpine Expedition Lead</span>
+                                </div>
+                            </div>
+                            <div style="font-size: 12px; color: var(--dash-muted); margin-bottom: 12px;">
+                                <div><strong>Languages:</strong> English, French, German</div>
+                                <div><strong>Tours Led:</strong> 142 • Rating: 4.98★</div>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center pt-2 border-top border-secondary border-opacity-10">
+                                <span class="status-badge status-confirmed">On Tour (Swiss Alps)</span>
+                                <button type="button" class="dash-btn dash-btn-outline dash-btn-sm">Duty Schedule</button>
+                            </div>
+                        </div>
+
+                        <div class="dash-card-item">
+                            <div class="d-flex align-items-center gap-3 mb-3">
+                                <div class="topbar-user-avatar" style="width: 48px; height: 48px; font-size: 20px;">
+                                    <i class="fa-solid fa-user-tie"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-white m-0" style="font-size: 15px;">Aiko Tanaka</h4>
+                                    <span style="font-size: 12px; color: #dfaa67;">Kyoto Cultural Specialist</span>
+                                </div>
+                            </div>
+                            <div style="font-size: 12px; color: var(--dash-muted); margin-bottom: 12px;">
+                                <div><strong>Languages:</strong> Japanese, English</div>
+                                <div><strong>Tours Led:</strong> 98 • Rating: 5.0★</div>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center pt-2 border-top border-secondary border-opacity-10">
+                                <span class="status-badge status-confirmed">Available</span>
+                                <button type="button" class="dash-btn dash-btn-outline dash-btn-sm">Duty Schedule</button>
+                            </div>
+                        </div>
+
+                        <div class="dash-card-item">
+                            <div class="d-flex align-items-center gap-3 mb-3">
+                                <div class="topbar-user-avatar" style="width: 48px; height: 48px; font-size: 20px;">
+                                    <i class="fa-solid fa-anchor"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-white m-0" style="font-size: 15px;">Matteo Bianchi</h4>
+                                    <span style="font-size: 12px; color: #dfaa67;">Yacht Captain & Excursion Lead</span>
+                                </div>
+                            </div>
+                            <div style="font-size: 12px; color: var(--dash-muted); margin-bottom: 12px;">
+                                <div><strong>Languages:</strong> Italian, English, Spanish</div>
+                                <div><strong>Tours Led:</strong> 116 • Rating: 4.95★</div>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center pt-2 border-top border-secondary border-opacity-10">
+                                <span class="status-badge status-confirmed">On Tour (Amalfi)</span>
+                                <button type="button" class="dash-btn dash-btn-outline dash-btn-sm">Duty Schedule</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==========================================
+                     VIEW 7: PAYMENTS & INVOICES
+                     ========================================== -->
+                <div id="view-payments" class="dashboard-view">
+                    <div class="view-header">
+                        <div>
+                            <h2 class="view-header-title"><i class="fa-solid fa-receipt"></i> Payments, Invoicing & Financials</h2>
+                            <p class="view-header-desc">Complete financial transaction records, stripe payouts, and billing invoices.</p>
+                        </div>
+                        <button type="button" class="dash-btn dash-btn-gold">
+                            <i class="fa-solid fa-download"></i> Download Audit Report
+                        </button>
+                    </div>
+
+                    <div class="dashboard-card">
+                        <div class="dash-table-responsive">
+                            <table class="dash-table">
+                                <thead>
+                                    <tr>
+                                        <th>Invoice #</th>
+                                        <th>Customer</th>
+                                        <th>Tour Package</th>
+                                        <th>Amount</th>
+                                        <th>Payment Gateway</th>
+                                        <th>Date</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>#INV-8821</strong></td>
+                                        <td>Alexandre Dumas</td>
+                                        <td>Swiss Alps Tour</td>
+                                        <td>$2,450.00</td>
+                                        <td>Stripe (Visa •••• 4242)</td>
+                                        <td>Oct 28, 2026</td>
+                                        <td><span class="status-badge status-confirmed">Paid</span></td>
+                                        <td><button type="button" class="dash-btn dash-btn-outline dash-btn-sm">PDF</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>#INV-8820</strong></td>
+                                        <td>Priya Sundaram</td>
+                                        <td>Maldives Coral Retreat</td>
+                                        <td>$3,800.00</td>
+                                        <td>Apple Pay</td>
+                                        <td>Oct 27, 2026</td>
+                                        <td><span class="status-badge status-confirmed">Paid</span></td>
+                                        <td><button type="button" class="dash-btn dash-btn-outline dash-btn-sm">PDF</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>#INV-8819</strong></td>
+                                        <td>Elena Rostova</td>
+                                        <td>Amalfi Coast Yacht Tour</td>
+                                        <td>$4,100.00</td>
+                                        <td>Amex Platinum</td>
+                                        <td>Oct 25, 2026</td>
+                                        <td><span class="status-badge status-confirmed">Paid</span></td>
+                                        <td><button type="button" class="dash-btn dash-btn-outline dash-btn-sm">PDF</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==========================================
+                     VIEW 8: REVIEWS & RATINGS
+                     ========================================== -->
+                <div id="view-reviews" class="dashboard-view">
+                    <div class="view-header">
+                        <div>
+                            <h2 class="view-header-title"><i class="fa-regular fa-star"></i> Reviews & Ratings Moderation</h2>
+                            <p class="view-header-desc">4.9★ platform rating based on 1,420 verified customer feedback submissions.</p>
+                        </div>
+                        <button type="button" class="dash-btn dash-btn-gold">
+                            <i class="fa-solid fa-share-nodes"></i> Publish to Homepage
+                        </button>
+                    </div>
+
+                    <div class="grid-3col">
+                        <div class="dash-card-item">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span style="color: #dfaa67;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
+                                <span style="font-size: 11px; color: var(--dash-muted);">Yesterday</span>
+                            </div>
+                            <p class="text-white" style="font-size: 13px; font-style: italic; margin-bottom: 12px;">
+                                "The Swiss Alps luxury safari was beyond our expectations! David Sterling was an exceptional guide."
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center pt-2 border-top border-secondary border-opacity-10">
+                                <span style="font-size: 12px; font-weight: 600; color: #fff;">Alexandre Dumas</span>
+                                <span class="status-badge status-confirmed">Published</span>
+                            </div>
+                        </div>
+
+                        <div class="dash-card-item">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span style="color: #dfaa67;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
+                                <span style="font-size: 11px; color: var(--dash-muted);">2 days ago</span>
+                            </div>
+                            <p class="text-white" style="font-size: 13px; font-style: italic; margin-bottom: 12px;">
+                                "Flawless concierge service in Maldives. The water villa and sunset reef tours were magical."
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center pt-2 border-top border-secondary border-opacity-10">
+                                <span style="font-size: 12px; font-weight: 600; color: #fff;">Priya Sundaram</span>
+                                <span class="status-badge status-confirmed">Published</span>
+                            </div>
+                        </div>
+
+                        <div class="dash-card-item">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span style="color: #dfaa67;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
+                                <span style="font-size: 11px; color: var(--dash-muted);">3 days ago</span>
+                            </div>
+                            <p class="text-white" style="font-size: 13px; font-style: italic; margin-bottom: 12px;">
+                                "Amalfi yacht tour with Captain Matteo was top tier. Pure Italian elegance from start to finish."
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center pt-2 border-top border-secondary border-opacity-10">
+                                <span style="font-size: 12px; font-weight: 600; color: #fff;">Elena Rostova</span>
+                                <span class="status-badge status-confirmed">Published</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==========================================
+                     VIEW 9: ANALYTICS & REPORTS
+                     ========================================== -->
+                <div id="view-analytics" class="dashboard-view">
+                    <div class="view-header">
+                        <div>
+                            <h2 class="view-header-title"><i class="fa-solid fa-chart-line"></i> Analytics & Performance Intelligence</h2>
+                            <p class="view-header-desc">Deep-dive conversion metrics, revenue trends, and traveler acquisition channels.</p>
+                        </div>
+                        <button type="button" class="dash-btn dash-btn-gold">
+                            <i class="fa-solid fa-file-pdf"></i> Generate Full Audit
+                        </button>
+                    </div>
+
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-header">
+                                <span class="stat-title">Conversion Rate</span>
+                                <div class="stat-icon green"><i class="fa-solid fa-chart-pie"></i></div>
+                            </div>
+                            <div class="stat-value">4.82%</div>
+                            <div class="stat-footer"><span class="stat-change positive">+0.9% this quarter</span></div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-header">
+                                <span class="stat-title">Avg Booking Size</span>
+                                <div class="stat-icon gold"><i class="fa-solid fa-wallet"></i></div>
+                            </div>
+                            <div class="stat-value">$2,840</div>
+                            <div class="stat-footer"><span class="stat-change positive">+12% vs last year</span></div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-header">
+                                <span class="stat-title">Repeat Travelers</span>
+                                <div class="stat-icon blue"><i class="fa-solid fa-rotate-right"></i></div>
+                            </div>
+                            <div class="stat-value">42.5%</div>
+                            <div class="stat-footer"><span class="stat-change positive">High loyalty index</span></div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-header">
+                                <span class="stat-title">Net Promoter Score</span>
+                                <div class="stat-icon purple"><i class="fa-solid fa-heart"></i></div>
+                            </div>
+                            <div class="stat-value">88 NPS</div>
+                            <div class="stat-footer"><span class="stat-change positive">World-class status</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==========================================
+                     VIEW 10: SETTINGS & SECURITY
+                     ========================================== -->
+                <div id="view-settings" class="dashboard-view">
+                    <div class="view-header">
+                        <div>
+                            <h2 class="view-header-title"><i class="fa-solid fa-gear"></i> System Settings & Security</h2>
+                            <p class="view-header-desc">Configure agency credentials, security firewalls, and payment gateways.</p>
+                        </div>
+                        <button type="button" class="dash-btn dash-btn-gold">
+                            <i class="fa-solid fa-floppy-disk"></i> Save System Config
+                        </button>
+                    </div>
+
+                    <div class="dashboard-grid-2col">
+                        <div class="dashboard-card">
+                            <h3 class="card-header-title mb-3"><i class="fa-solid fa-shield-halved text-warning me-2"></i> Security & Authentication</h3>
+                            <div class="mb-3">
+                                <label class="text-white" style="font-size: 13px;">Two-Factor Authentication (2FA)</label>
+                                <div class="d-flex justify-content-between align-items-center mt-1">
+                                    <span style="font-size: 12px; color: var(--dash-muted);">Mandatory for Administrator & Manager accounts</span>
+                                    <span class="status-badge status-confirmed">Enforced</span>
+                                </div>
+                            </div>
+                            <div class="mb-3 pt-3 border-top border-secondary border-opacity-10">
+                                <label class="text-white" style="font-size: 13px;">Active API Secret Keys</label>
+                                <div class="d-flex justify-content-between align-items-center mt-1">
+                                    <span style="font-size: 12px; color: var(--dash-muted);">Restin_Live_sk_9402••••••••</span>
+                                    <button type="button" class="dash-btn dash-btn-outline dash-btn-sm">Rotate Key</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dashboard-card">
+                            <h3 class="card-header-title mb-3"><i class="fa-solid fa-database text-info me-2"></i> Backups & Data Integrity</h3>
+                            <div class="mb-3">
+                                <label class="text-white" style="font-size: 13px;">Automated Cloud Backups</label>
+                                <div class="d-flex justify-content-between align-items-center mt-1">
+                                    <span style="font-size: 12px; color: var(--dash-muted);">Last sync: Today, 18:00 UTC (100% Verified)</span>
+                                    <button type="button" class="dash-btn dash-btn-outline dash-btn-sm">Backup Now</button>
+                                </div>
+                            </div>
+                            <div class="mb-3 pt-3 border-top border-secondary border-opacity-10">
+                                <label class="text-white" style="font-size: 13px;">Session Timeout Policy</label>
+                                <div class="d-flex justify-content-between align-items-center mt-1">
+                                    <span style="font-size: 12px; color: var(--dash-muted);">Auto logout after 30 minutes of inactivity</span>
+                                    <span class="status-badge status-confirmed">Enabled</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+
+    </div>
+
+    <!-- Core Scripts -->
+    <script src="assets/js/jquery-3.7.1.min.js"></script>
+    <script src="assets/js/auth.js"></script>
+    <script src="assets/js/dashboard.js"></script>
+</body>
+</html>
