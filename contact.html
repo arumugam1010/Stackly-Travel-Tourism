@@ -116,7 +116,7 @@
                             </ul>
                             <div class="social-icon d-flex align-items-center">
                                 <a href="404.html"><i class="fab fa-facebook-f"></i></a>
-                                <a href="404.html"><i class="fab fa-twitter"></i></a>
+                                <a href="404.html" aria-label="X"><i class="fa-brands fa-x-twitter"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg></i></a>
                                 <a href="404.html"><i class="fab fa-youtube"></i></a>
                                 <a href="404.html"><i class="fab fa-linkedin-in"></i></a>
                             </div>
@@ -274,25 +274,50 @@
                                 <div class="col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".3s">
                                     <h4>Your Name</h4>
                                     <div class="form-clt">
-                                        <input type="text" name="name" id="name" placeholder="Your Name">
+                                        <input type="text" name="name" id="name" placeholder="Your Name (letters only)" autocomplete="name" required>
+                                    </div>
+                                    <div class="field-error-msg" id="name-error" style="display: none; color: #e63946; font-size: 13px; margin-top: 6px; font-weight: 500;">
+                                        <i class="fa-solid fa-circle-exclamation me-1"></i> Numbers are not allowed in Name. Only letters and spaces.
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".4s">
+                                    <h4>Phone Number</h4>
+                                    <div class="form-clt">
+                                        <input type="tel" name="phone" id="phone" placeholder="Your Phone Number (digits only)" autocomplete="tel" required>
+                                    </div>
+                                    <div class="field-error-msg" id="phone-error" style="display: none; color: #e63946; font-size: 13px; margin-top: 6px; font-weight: 500;">
+                                        <i class="fa-solid fa-circle-exclamation me-1"></i> Letters are not allowed in Phone Number. Only digits.
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".5s">
                                     <h4>Your Email</h4>
                                     <div class="form-clt">
-                                        <input type="text" name="email" id="email2" placeholder="Your Email">
+                                        <input type="email" name="email" id="email2" placeholder="Your Email" autocomplete="email" required>
+                                    </div>
+                                    <div class="field-error-msg" id="email-error" style="display: none; color: #e63946; font-size: 13px; margin-top: 6px; font-weight: 500;">
+                                        <i class="fa-solid fa-circle-exclamation me-1"></i> Please enter a valid email address.
                                     </div>
                                 </div>
-                                <div class="col-lg-12 wow fadeInUp" data-wow-delay=".3s">
-                                    <h4>Tour Inquiries / Destination</h4>
+                                <div class="col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".6s">
+                                    <h4>Tour Package / Destination</h4>
                                     <div class="form-clt">
-                                        <textarea name="message" id="message" placeholder="Which destinations or packages are you interested in?"></textarea>
+                                        <input type="text" name="destination" id="destination" placeholder="Interested Destination / Package">
                                     </div>
                                 </div>
-                                <div class="col-lg-12 wow fadeInUp" data-wow-delay=".5s">
+                                <div class="col-lg-12 wow fadeInUp" data-wow-delay=".7s">
+                                    <h4>Tour Inquiries / Message</h4>
+                                    <div class="form-clt">
+                                        <textarea name="message" id="message" placeholder="Which destinations, tour dates, or packages are you interested in?" required></textarea>
+                                    </div>
+                                    <div class="field-error-msg" id="message-error" style="display: none; color: #e63946; font-size: 13px; margin-top: 6px; font-weight: 500;">
+                                        <i class="fa-solid fa-circle-exclamation me-1"></i> Please enter your inquiry details.
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 wow fadeInUp" data-wow-delay=".8s">
                                     <button type="submit" class="theme-btn">
                                         SUBMIT INQUIRY
                                     </button>
+                                    <div class="form-message mt-3"></div>
                                 </div>
                             </div>
                         </form>
@@ -402,8 +427,10 @@
                 <div class="row">
                     <div class="col-xl-4 col-md-6 col-lg-3 wow fadeInUp" data-wow-delay=".2s">
                         <div class="single-footer-widget">
-                            <div class="widget-title">
-                                <h5>About Us</h5>
+                            <div class="widget-head mb-4">
+                                <a href="index.html" class="footer-widget-logo">
+                                    <img src="assets/img/logo/stackly-white.webp" alt="Stackly Logo">
+                                </a>
                             </div>
                             <div class="footer-content">
                                 <p>
@@ -484,7 +511,7 @@
                 <div class="footer-wrapper">
                     <div class="social-icon wow fadeInLeft" data-wow-delay=".3s">
                         <a href="404.html"><i class="fa-brands fa-linkedin"></i></a>
-                        <a href="404.html"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="404.html" aria-label="X"><i class="fa-brands fa-x-twitter"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg></i></a>
                         <a href="404.html"><i class="fa-brands fa-instagram"></i></a>
                         <a href="404.html"><i class="fa-brands fa-facebook-f"></i></a>
                     </div>
@@ -503,8 +530,8 @@
                     </ul>
                     <p class="wow fadeInRight" data-wow-delay=".7s">Copyright© <span>Restin Tours & Travels</span></p>
                 </div>
-                <a href="index.html" class="footer-logo wow fadeInUp" data-wow-delay=".3s">
-                    <img src="assets/img/logo/stackly-white.webp" alt="img">
+                <a href="index.html" class="footer-logo">
+                    <img src="assets/img/logo/stackly-white.webp" alt="Stackly Logo">
                 </a>
             </div>
         </div>
